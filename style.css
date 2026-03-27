@@ -99,3 +99,14 @@ section {
                     0 0 35px var(--main-color),
                     0 0 45px var(--main-color);
     }
+    @keyframes floatImage {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-2.4rem);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
