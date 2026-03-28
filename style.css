@@ -123,4 +123,9 @@ section {
         margin-bottom: 2rem;
     }
 
+    span{
+        color: var(--main-color);
+
+    }
+
 
