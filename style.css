@@ -159,7 +159,7 @@ section {
         transform: scale(1.2) translateY(-10px);
         background: var(--main-color);
         color: var(--bg-color);
-        box-shadow: 0 0 25px var(--main-color),
+        box-shadow: 0 0 25px var(--main-color);
 
     }
 
@@ -171,13 +171,13 @@ section {
         box-shadow: none;
         font-size: 1.6rem;
         color: var(--bg-color);
-        letter-spacing: 0.1rem:
+        letter-spacing: 0.1rem;
         font-weight:600;
         transition: 0.3s ease;
     }
 
     .btn:hover{
-        box-shadow: 0 0 1.6 var(--main-color),
+        box-shadow: 0 0 1.6 var(--main-color);
     }
 
 
