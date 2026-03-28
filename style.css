@@ -152,6 +152,14 @@ section {
         margin:3rem 1.5rem 3rem 0;
         transition: 0.3s ease;
     }
+    .social-media a:hover{
+        transform: scale(1.2) translateY(-10px);
+        background: var(--main-color);
+        color: var(--bg-color);
+        box-shadow: 0 0 25px var(--main-color),
+
+    }
+
 
 
 
