@@ -138,5 +138,16 @@ section {
         font-size: 1.6rem;
     }
 
+    .social-media a{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 42px;
+        height: 42px;
+        background: transparent;
+        border: 0.2rem solid var(--main-color);
+        border-radius: 50%;
+        font-size: 2rem;
+    }
 
 
