@@ -110,3 +110,7 @@ section {
             transform: translateY(0);
         }
     }
+
+    .home-content  {
+        margin-left: 5rem;
+    }
