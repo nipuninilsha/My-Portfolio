@@ -284,3 +284,23 @@ section {
     opacity: 1;
     transition-delay: 400ms;
 }
+
+/*About*/
+
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    background: var(--main-color);
+    padding-bottom: 6rem;
+}
+
+.heading{
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+
