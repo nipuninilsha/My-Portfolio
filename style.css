@@ -543,4 +543,18 @@ section {
     transform: translateY(-2px);
 }
 
+/* Skills Section */
+
+.skills h2{
+    margin-bottom: 5rem;
+}
+
+.skill-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
 
