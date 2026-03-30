@@ -557,4 +557,14 @@ section {
     gap: 2rem;
 }
 
+.skill-container .skill-box{
+    flex: 1 1 30 rem;
+    background: var(--snd-bg-color);
+    padding: 6rem 2rem 6rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: 0.3rem solid var(--bg-color);
+    transition: 0.3s ease;
+}
+
 
