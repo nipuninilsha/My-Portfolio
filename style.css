@@ -545,7 +545,7 @@ section {
 
 /* Skills Section */
 
-.skills h2{
+/*.skills h2{
     text-align: center;
     margin-bottom: 5rem;
 }
@@ -584,6 +584,80 @@ section {
    .skill-box p{
        font-size: 1.6rem;
        margin: 1rem 0;
-   }
+   } */
+
+.heading span {
+    background: linear-gradient(135deg, #7c5cfc, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+/* ── Skills Section ── */
+.skills h2 {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.skill-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.skill-container .skill-box {
+    flex: 1 1 30rem;
+    background: var(--snd-bg-color);
+    padding: 6rem 2rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: 0.3rem solid var(--bg-color);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.skill-container .skill-box:hover {
+    border-color: var(--main-color);
+    transform: scale(1.02);
+}
+
+.skill-box i {
+    font-size: 7rem;
+    color: var(--main-color);
+}
+
+.skill-box h3 {
+    font-size: 2.6rem;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    margin-top: 1.5rem;
+}
+
+.skill-box p {
+    font-size: 1.6rem;
+    margin: 1rem 0 2rem;
+    color: var(--muted-color);
+    line-height: 1.7;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    font-size: 1.6rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    color: var(--main-color);
+    border: 0.2rem solid var(--main-color);
+    border-radius: 4rem;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--main-color);
+    color: #fff;
+}
 
 
