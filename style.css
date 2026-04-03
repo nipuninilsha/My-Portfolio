@@ -660,4 +660,20 @@ section {
     color: #fff;
 }
 
+/* Contact Section Code */
+.contact {
+    background: var(--bg-color);
+}
+.contact:h2 {
+    margin-bottom: 3rem;
+    color: var(--main-color);
+}
+
+.contact form{
+    max-width: 70rem;
+    margin:1 rem 0 auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
 
