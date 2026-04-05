@@ -4,8 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://www.hxstrive.com/cdn/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Nipuni Nilsha - Portfolio</title>
+
+    <style>
+        /* Navbar Fix - Single Row */
+        .header {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .navbar {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1rem;
+            white-space: nowrap;
+        }
+        .navbar a {
+            font-size: clamp(12px, 1.2vw, 15px);
+        }
+    </style>
 </head>
 <body>
 
@@ -36,8 +57,8 @@
     <div class="home-content">
         <h3>Hi,I'm</h3>
         <h1>Nipuni Nilsha</h1>
-        <h3>And I'm a <span class="multiple-text" >Web Developer</span></h3>
-        <p>Hi, I’m Nipuni Nilsha, an undergraduate IT student with a strong passion for web
+        <h3>And I'm a <span class="multiple-text">Web Developer</span></h3>
+        <p>Hi, I'm Nipuni Nilsha, an undergraduate IT student with a strong passion for web
             development and UI/UX design. I enjoy creating clean, user-friendly, and responsive
             websites that deliver meaningful digital experiences. Through academic projects and
             continuous self-learning, I am developing solid skills in front-end technologies and design
@@ -62,44 +83,18 @@
     <div class="container">
         <div class="box box-1" style="--img: url(assets/Gallery/myself.jpeg);" data-text="Myself"></div>
         <div class="box box-2" style="--img: url();" data-text="Myfamily"></div>
-        <div class="box box-3" style="--img: url(
-);" data-text="Kaito"></div>
+        <div class="box box-3" style="--img: url();" data-text="Kaito"></div>
         <div class="box box-4" style="--img: url();" data-text="Tsuki"></div>
         <div class="box box-5" style="--img: url();" data-text="Mitsui"></div>
     </div>
 </section>
 
-
 <!--About Code-->
-<!--<section class="about" id="about">
-    <h2 class="headind">About <span>Me</span></h2>
-
-        <div class="about-img">
-            <img src="assets/images/about1.jpeg" alt="about Image1">
-            <span class="circle-spin"></span>
-        </div>
-
-    <div class="about-content">
-        <h3>Web Developer!</h3>
-        <p>Hi, I’m Nipuni Nilsha, an undergraduate IT student with a strong passion for web
-            development and UI/UX design. I enjoy creating clean, user-friendly, and responsive
-            websites that deliver meaningful digital experiences. Through academic projects and
-            continuous self-learning, I am developing solid skills in front-end technologies and design
-            principles. I am highly motivated to grow as a front-end developer and aspire to contribute
-            my creativity and technical knowledge to innovative and impactful web solutions.</p>
-
-        <div class="btn-box btns">
-            <a href="#" class="btn">Read More</a>
-        </div>
-
-    </div>
-</section>-->
-
 <section class="about" id="about">
-    <h2 class="heading">About <span>Me</span></h2>
+    <h2 class="heading">About Me</h2>
 
     <div class="about-img">
-        <img src="assets/images/about1.jpeg" alt="About Image">
+        <img id="about-me-image" src="assets/images/about1.jpeg" alt="About Image">
         <span class="circle-spin"></span>
     </div>
 
@@ -118,7 +113,7 @@
     </div>
 </section>
 
-<!--skill code-->
+<!--Skills Code-->
 <section class="skills" id="skills">
     <h1 class="heading">My <span>Skills</span></h1>
 
@@ -138,7 +133,7 @@
         </div>
 
         <div class="skill-box">
-            <i class="bx bx-android"></i>
+            <i class="fa-brands fa-accusoft" style="color: rgb(45, 122, 99); font-size: 75px"></i>
             <h3>App Development</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab at excepturi explicabo facere illum ipsa libero magnam maiores, minima minus molestias nesciunt, officiis quidem repellat sapiente veniam vitae voluptates. Tempora!</p>
             <a href="#" class="btn">Read More</a>
@@ -146,11 +141,11 @@
     </div>
 </section>
 
-<!--Contact Section -->
+<!--Contact Section-->
 <section class="contact" id="contact">
-    <h2 class="heading"> <span> Contact Me</span></h2>
+    <h2 class="heading"><span>Contact Me</span></h2>
 
-    <from action="#">
+    <form action="#">
         <div class="input-box">
             <input type="text" placeholder="Full Name">
             <input type="email" name="Email" placeholder="Email Address">
@@ -160,14 +155,14 @@
             <input type="number" placeholder="Phone Number">
             <input type="text" placeholder="Email Subject">
         </div>
+
         <textarea name="message" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-        <input type="submit" value="Send Message" class="btn"
-    </from>
+        <input type="submit" value="Send Message" class="btn">
+    </form>
 
 </section>
 
-
-<!--Footer Section -->
+<!--Footer Section-->
 <footer class="footer">
     <div class="social">
         <a href="#"><i class='bx bxl-linkedin'></i></a>
@@ -178,11 +173,8 @@
     <p class="copyright">
         &copy;Nipuni Nilsha - All Rights Reserved
     </p>
-
 </footer>
 
-
-
-
+<script src="https://www.hxstrive.com/cdn/libs/font-awesome/7.0.1/js/all.min.js"></script>
 </body>
 </html>
