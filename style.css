@@ -666,6 +666,8 @@ span {
 }
 
 .footer .copyright {
-    font-size: 1.6rem;
-    color: var(--bg-color);
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--text-color);
 }
