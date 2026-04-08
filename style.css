@@ -11,10 +11,10 @@
 }
 
 :root {
-    --bg-color: #fff;
-    --snd-bg-color: #d5fdf9;
-    --text-color: #000;
-    --main-color: #007f73;
+    --bg-color: #0b0b15;
+    --snd-bg-color: #1a1a2e;
+    --text-color: #f1f1f1;
+    --main-color: #8b5cf6;  /* purple accent */
 }
 
 /* ✅ FIX 2: '*' සහ 'html' එකට mix කරලා තිබුණා */
@@ -250,6 +250,7 @@ span {
     opacity: 1;
     transition-delay: 400ms;
 }
+
 
 
 /*About*/
