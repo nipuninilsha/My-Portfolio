@@ -48,6 +48,7 @@
     </nav>
 </header>
 
+
 <!--Home Section Code-->
 <section class="home" id="home">
     <div class="home-img">
@@ -63,7 +64,7 @@
             websites that deliver meaningful digital experiences. Through academic projects and
             continuous self-learning, I am developing solid skills in front-end technologies and design
             principles. I am highly motivated to grow as a front-end developer and aspire to contribute
-            my creativity and technical knowledge to innovative and impactful web solutions.</p>
+            my creativity and technical knowledge to impactful web solutions.</p>
 
         <div class="social-media">
             <a href="#"><i class='bx bxl-linkedin'></i></a>
@@ -75,6 +76,52 @@
         <a href="#" class="btn">Download CV</a>
     </div>
 </section>
+
+
+<script>
+    const roles = [
+        "Software Engineer",
+        "Web Developer",
+        "UI/UX Designer",
+        "Problem Solver",
+        "Full Stack Developer",
+        "Creative Thinker",
+        "Open Source Contributor"
+    ];
+
+    const el = document.querySelector(".multiple-text");
+    let roleIndex = 0;
+    let charIndex  = 0;
+    let isDeleting = false;
+
+    function type() {
+        const current = roles[roleIndex];
+
+        if (!isDeleting) {
+            el.textContent = current.slice(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === current.length) {
+                isDeleting = true;
+                setTimeout(type, 1600);
+                return;
+            }
+        } else {
+            el.textContent = current.slice(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+            }
+        }
+
+        setTimeout(type, isDeleting ? 60 : 100);
+    }
+
+    type();
+</script>
+
+</body>
+</html>
 
 <!--Gallery Code-->
 <section class="gallery" id="gallery">
