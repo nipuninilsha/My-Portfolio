@@ -87,7 +87,6 @@ section {
     align-items: center;
 }
 
-/* ✅ FIX 3: box-shadow 2nd line floating කරලා තිබුණා */
 .home-img img {
     width: 25vw;
     height: 32vw;
@@ -127,6 +126,18 @@ section {
 
 span {
     color: var(--main-color);
+}
+
+/* ✅ Typing Animation - multiple-text span */
+.multiple-text {
+    border-right: 3px solid var(--main-color);
+    padding-right: 4px;
+    animation: cursorBlink 0.7s step-end infinite;
+}
+
+@keyframes cursorBlink {
+    0%, 100% { border-color: var(--main-color); }
+    50%       { border-color: transparent; }
 }
 
 .home-content h1 {
@@ -177,7 +188,6 @@ span {
 .btn:hover {
     box-shadow: 0 0 1.6rem var(--main-color);
 }
-
 
 /*Gallery*/
 
