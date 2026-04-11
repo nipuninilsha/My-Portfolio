@@ -1,4 +1,4 @@
-/* ✅ FIX 1: '*' selector missing කරලා තිබුණා */
+
 * {
     margin: 0;
     padding: 0;
@@ -14,10 +14,10 @@
     --bg-color: #0b0b15;
     --snd-bg-color: #1a1a2e;
     --text-color: #f1f1f1;
-    --main-color: #8b5cf6;  /* purple accent */
+    --main-color: #8b5cf6;
 }
 
-/* ✅ FIX 2: '*' සහ 'html' එකට mix කරලා තිබුණා */
+
 html {
     font-size: 62.5%;
     overflow-x: hidden;
@@ -128,7 +128,7 @@ span {
     color: var(--main-color);
 }
 
-/* ✅ Typing Animation - multiple-text span */
+/*  Typing Animation - multiple-text span */
 .multiple-text {
     border-right: 3px solid var(--main-color);
     padding-right: 4px;
@@ -267,10 +267,10 @@ span {
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* ✅ හරි - මේ color එකට change කරන්න */
+
 :root {
     --main-color: #7b4fc9;
-    --snd-bg-color: #1a1a2e;  /* ← cyan color */
+    --snd-bg-color: #1a1a2e;
 }
 
 * {
@@ -373,7 +373,7 @@ body {
 .about-content p {
     font-size: 1.6rem;
     line-height: 1.8;
-    color: #a0b0c8;
+    color: #000000;
     margin: 0 0 3rem;
 }
 
@@ -414,46 +414,7 @@ body {
 
 /* Skills Section */
 
-/*.skills h2{
-    text-align: center;
-    margin-bottom: 5rem;
-}
 
-.skill-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.skill-container .skill-box{
-    flex: 1 1 30 rem;
-    background: var(--snd-bg-color);
-    padding: 6rem 2rem 6rem;
-    border-radius: 2rem;
-    text-align: center;
-    border: 0.3rem solid var(--bg-color);
-    transition: 0.3s ease;
-}
-
-   .skill-container .skill-box:hover{
-       border-color: var(--main-color);
-       transition: scale(1.02);
-   }
-
-   .skill-box i{
-       font-size: 7rem;
-       color: var(--main-color);
-   }
-   .skill-box h3{
-       font-size: 2.6rem;
-   }
-
-   .skill-box p{
-       font-size: 1.6rem;
-       margin: 1rem 0;
-   } */
 
 .heading span {
     background: linear-gradient(135deg, #007f73, #000);
@@ -510,7 +471,7 @@ body {
 
 /* Contact Section Code */
 
-/* ✅ FIX 4: '.contact:h2' → '.contact h2' */
+
 .contact {
     background: var(--bg-color);
 }
@@ -520,7 +481,7 @@ body {
     color: var(--main-color);
 }
 
-/* ✅ FIX 5: 'margin:1 rem' → 'margin: 1rem' */
+
 .contact form {
     max-width: 70rem;
     margin: 1rem 0 auto;
@@ -528,14 +489,14 @@ body {
     margin-bottom: 3rem;
 }
 
-/* ✅ FIX 6: 'form.input-box' → 'form .input-box' */
+
 .contact form .input-box {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-/* ✅ FIX 7: 'flex-wr}ap' → 'flex-wrap', nested rules flatten කළා */
+
 .contact form .input-box input {
     width: 49%;
     margin: 0.7rem 0.35rem;
