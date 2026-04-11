@@ -58,6 +58,9 @@
         <h3>Hi,I'm</h3>
         <h1>Nipuni Nilsha</h1>
         <h3>And I'm a <span class="multiple-text">Web Developer</span></h3>
+        <p>I am Nipuni Nilsha, a Software Engineering undergraduate with a passion
+            for web development and UI/UX design. I love building clean and creative
+            websites that make a real difference.</p>
 
         <div class="social-media">
             <a href="#"><i class='bx bxl-linkedin'></i></a>
@@ -141,6 +144,7 @@
 </section>
 
 <!--About Code-->
+
 <section class="about" id="about">
     <h2 class="heading">About Me</h2>
 
@@ -150,19 +154,54 @@
     </div>
 
     <div class="about-content">
-        <h3>Web Developer!</h3>
-        <p>Hi, I'm Nipuni Nilsha, an undergraduate IT student with a strong passion for web
+        <h3>I'm a <span class="multiple-text-about"></span></h3>
+        <p><strong>Hi, I'm Nipuni Nilsha, an undergraduate IT student with a strong passion for web
             development and UI/UX design. I enjoy creating clean, user-friendly, and responsive
             websites that deliver meaningful digital experiences. Through academic projects and
             continuous self-learning, I am developing solid skills in front-end technologies and design
             principles. I am highly motivated to grow as a front-end developer and aspire to contribute
-            my creativity and technical knowledge to innovative and impactful web solutions.</p>
+            my creativity and technical knowledge to innovative and impactful web solutions.</strong></p>
 
-        <div class="btn-box btns">
-            <a href="#" class="btn">Read More</a>
-        </div>
+
     </div>
 </section>
+
+<script>
+    const texts = ["Web Developer", "UI/UX Designer", "Front-End Developer", "Creative Coder"];
+    let aboutTextIndex = 0;
+    let aboutCharIndex = 0;
+    let aboutIsDeleting = false;
+
+    const aboutTypingElement = document.querySelector('.multiple-text-about');
+
+    function aboutTypeEffect() {
+        const currentText = texts[aboutTextIndex];
+
+        if (aboutIsDeleting) {
+            aboutTypingElement.textContent = currentText.substring(0, aboutCharIndex - 1);
+            aboutCharIndex--;
+        } else {
+            aboutTypingElement.textContent = currentText.substring(0, aboutCharIndex + 1);
+            aboutCharIndex++;
+        }
+
+        if (!aboutIsDeleting && aboutCharIndex === currentText.length) {
+            aboutIsDeleting = true;
+            setTimeout(aboutTypeEffect, 1500);
+            return;
+        }
+
+        if (aboutIsDeleting && aboutCharIndex === 0) {
+            aboutIsDeleting = false;
+            aboutTextIndex = (aboutTextIndex + 1) % texts.length;
+        }
+
+        const speed = aboutIsDeleting ? 80 : 120;
+        setTimeout(aboutTypeEffect, speed);
+    }
+
+    aboutTypeEffect();
+</script>
 
 <!--Skills Code-->
 <section class="skills" id="skills">
