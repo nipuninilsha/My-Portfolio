@@ -576,6 +576,25 @@ body {
     color: #fff;
 }
 
+.contact-wrapper {
+    width: 95%;
+    max-width: 1100px;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.contact-img img {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+}
+
+/* form එක full width ගන්න */
+.contact-wrapper form {
+    flex: 1;
+}
+
 /* Footer Section */
 .footer {
     display: flex;

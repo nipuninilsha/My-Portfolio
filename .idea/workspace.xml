@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d45198e8-0df7-488e-933b-52d4d47f86b9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
@@ -43,7 +42,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/My_Web_Portfolio/assets/Gallery&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/My_Web_Portfolio/assets/contact&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -55,6 +54,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\My_Web_Portfolio\assets\contact" />
       <recent name="C:\Users\User\Desktop\My_Web_Portfolio\assets\Gallery" />
       <recent name="C:\Users\User\Desktop\My_Web_Portfolio\assets\images" />
       <recent name="C:\Users\User\Desktop\My_Web_Portfolio\.idea" />
@@ -122,7 +122,10 @@
       <workItem from="1775706109845" duration="15000" />
       <workItem from="1775708009449" duration="140000" />
       <workItem from="1775726212250" duration="124000" />
-      <workItem from="1775890148056" duration="5509000" />
+      <workItem from="1775890148056" duration="7940000" />
+      <workItem from="1776101183179" duration="1205000" />
+      <workItem from="1776335111006" duration="438000" />
+      <workItem from="1776672954987" duration="1424000" />
     </task>
     <servers />
   </component>

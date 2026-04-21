@@ -235,22 +235,180 @@
 
 
 <section class="contact" id="contact">
-    <h3 class="heading">Contact Me</h3>
+    <h2 class="heading">Contact <span>Me</span></h2>
 
-    <form action="#">
-        <div class="input-box">
-            <input type="text" placeholder="Full Name">
-            <input type="email" placeholder="Email Address">
+    <div class="contact-wrapper">
+        <!-- Sticker left side -->
+        <div class="contact-img">
+            <img src="assets/contact/sticker.png" alt="sticker">
         </div>
 
-        <div class="input-box">
-            <input type="number" placeholder="Phone Number">
-            <input type="text" placeholder="Email Subject">
+        <!-- Form right side -->
+        <form action="#">
+            <div class="input-box">
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email Address">
+            </div>
+            <div class="input-box">
+                <input type="number" placeholder="Phone Number">
+                <input type="text" placeholder="Email Subject">
+            </div>
+            <textarea name="message" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+    </div>
+</section>
+
+<!--education section-->
+
+<section class="edu-section">
+
+    <p class="edu-eyebrow">Academic background</p>
+    <h2 class="edu-title">Education & <em>Qualifications</em></h2>
+    <div class="edu-divider"></div>
+
+    <div class="timeline">
+        <div class="timeline-rail"></div>
+
+        <!-- ── Diploma in Software Engineering ── -->
+        <div class="edu-card highlight">
+            <div class="timeline-dot dot-diploma"></div>
+            <div class="card-top">
+                <div>
+                    <p class="card-qual">Diploma in Software Engineering</p>
+                    <p class="card-school">Institute Name · Sri Lanka</p>
+                </div>
+                <div class="badge-row">
+                    <span class="card-badge badge-diploma">Diploma</span>
+                    <span class="ongoing-pill">
+              <span class="dot-pulse"></span>Ongoing
+            </span>
+                </div>
+            </div>
+            <div class="card-subjects">
+                <span class="subject-tag purple">Software Development</span>
+                <span class="subject-tag purple">Object Oriented Programming</span>
+                <span class="subject-tag purple">Database Systems</span>
+                <span class="subject-tag purple">Web Technologies</span>
+                <span class="subject-tag purple">System Analysis & Design</span>
+            </div>
+            <div class="card-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Level</span>
+                    <span class="meta-value">Diploma</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Field</span>
+                    <span class="meta-value">Software Engineering</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Year</span>
+                    <span class="meta-value">2024 — Present</span>
+                </div>
+            </div>
         </div>
 
-        <textarea name="message" cols="30" rows="10" placeholder="Your Message"></textarea>
-        <input type="submit" value="Send Message" class="btn">
-    </form>
+        <!-- ── NVQ Level 4 ICT ── -->
+        <div class="edu-card">
+            <div class="timeline-dot dot-nvq"></div>
+            <div class="card-top">
+                <div>
+                    <p class="card-qual">NVQ Level 4 — Information & Communication Technology</p>
+                    <p class="card-school">National Vocational Qualification · Sri Lanka</p>
+                </div>
+                <span class="card-badge badge-nvq">NVQ 4</span>
+            </div>
+            <div class="card-subjects">
+                <span class="subject-tag">ICT Practitioner</span>
+                <span class="subject-tag">Networking</span>
+                <span class="subject-tag">Systems Support</span>
+                <span class="subject-tag">Database Management</span>
+            </div>
+            <div class="card-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Level</span>
+                    <span class="meta-value">NVQ 4</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Field</span>
+                    <span class="meta-value">ICT</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Year</span>
+                    <span class="meta-value">2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── G.C.E. Advanced Level ── -->
+        <div class="edu-card">
+            <div class="timeline-dot dot-al"></div>
+            <div class="card-top">
+                <div>
+                    <p class="card-qual">G.C.E. Advanced Level (A/L)</p>
+                    <p class="card-school">Kalutara Balika Vidyalaya · Kalutara</p>
+                </div>
+                <span class="card-badge badge-al">A/L</span>
+            </div>
+            <div class="card-subjects">
+                <span class="subject-tag">Logic</span>
+                <span class="subject-tag">Political Science</span>
+                <span class="subject-tag">History</span>
+            </div>
+            <div class="card-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Stream</span>
+                    <span class="meta-value">Arts</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">School</span>
+                    <span class="meta-value">Kalutara Balika</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Year</span>
+                    <span class="meta-value">2022</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── G.C.E. Ordinary Level ── -->
+        <div class="edu-card">
+            <div class="timeline-dot dot-ol"></div>
+            <div class="card-top">
+                <div>
+                    <p class="card-qual">G.C.E. Ordinary Level (O/L)</p>
+                    <p class="card-school">Potuvilla Central College · Potuvilla</p>
+                </div>
+                <span class="card-badge badge-ol">O/L</span>
+            </div>
+            <div class="card-subjects">
+                <span class="subject-tag">Mathematics</span>
+                <span class="subject-tag">Science</span>
+                <span class="subject-tag">Sinhala Literature</span>
+                <span class="subject-tag">Geography</span>
+                <span class="subject-tag">Agricultural Science</span>
+                <span class="subject-tag">English</span>
+                <span class="subject-tag">Buddhism</span>
+                <span class="subject-tag">History</span>
+                <span class="subject-tag">Sinhala Language</span>
+            </div>
+            <div class="card-meta">
+                <div class="meta-item">
+                    <span class="meta-label">School</span>
+                    <span class="meta-value">Potuvilla Central</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Subjects</span>
+                    <span class="meta-value">9 subjects</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Year</span>
+                    <span class="meta-value">2019</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </section>
 
 
