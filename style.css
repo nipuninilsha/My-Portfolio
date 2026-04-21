@@ -595,6 +595,253 @@ body {
     flex: 1;
 }
 
+
+/*education section */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #0b0b15;
+    --snd-bg-color: #1a1a2e;
+    --text-color: #f1f1f1;
+    --main-color: #8b5cf6;
+
+    --main-color-dim: #8b5cf622;
+    --main-color-border: #8b5cf644;
+    --muted: #888888;
+    --border: #2a2a3a;
+    --tag-bg: #12121f;
+    --tag-border: #2e2e44;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    padding: 4rem 3rem;
+}
+
+/* ── Section Wrapper ── */
+.edu-section {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.edu-eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.6rem;
+}
+
+.edu-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 6vw, 3.8rem);
+    color: var(--text-color);
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+}
+
+.edu-title em {
+    font-style: italic;
+    color: var(--muted);
+}
+
+.edu-divider {
+    height: 0.5px;
+    background: var(--border);
+    margin: 1.8rem 0 2.8rem;
+}
+
+/* ── Timeline ── */
+.timeline {
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.timeline-rail {
+    position: absolute;
+    left: 6px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, #333355, transparent);
+}
+
+/* ── Card ── */
+.edu-card {
+    position: relative;
+    background: var(--snd-bg-color);
+    border: 0.5px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    margin-bottom: 1.8rem;
+    transition: border-color 0.2s;
+}
+
+.edu-card:hover {
+    border-color: #3a3a5a;
+}
+
+.edu-card.highlight {
+    border-color: var(--main-color-border);
+    background: #12102a;
+}
+
+/* ── Timeline Dot ── */
+.timeline-dot {
+    position: absolute;
+    left: -2.6rem;
+    top: 1.8rem;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid var(--bg-color);
+    box-sizing: border-box;
+}
+
+.dot-diploma { background: var(--main-color); }
+.dot-nvq     { background: #D4537E; }
+.dot-al      { background: #378ADD; }
+.dot-ol      { background: #1D9E75; }
+
+/* ── Card Top Row ── */
+.card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.4rem;
+}
+
+.card-badge {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.badge-diploma { background: #1e1a3e; color: var(--main-color); border: 0.5px solid var(--main-color-border); }
+.badge-nvq     { background: #3a1528; color: #D4537E; }
+.badge-al      { background: #0d2a44; color: #5BA8F5; }
+.badge-ol      { background: #0a2a1e; color: #1D9E75; }
+
+.card-qual {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    margin: 0 0 5px;
+    line-height: 1.3;
+}
+
+.card-school {
+    font-size: 15px;
+    color: var(--muted);
+    margin: 0 0 1.1rem;
+}
+
+/* ── Subject Tags ── */
+.card-subjects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.2rem;
+}
+
+.subject-tag {
+    font-size: 14px;
+    color: #999999;
+    background: var(--tag-bg);
+    border: 0.5px solid var(--tag-border);
+    padding: 5px 14px;
+    border-radius: 20px;
+}
+
+.subject-tag.purple {
+    background: #1a1530;
+    border-color: #3a3060;
+    color: #b39dfa;
+}
+
+/* ── Meta Row ── */
+.card-meta {
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    border-top: 0.5px solid var(--border);
+    padding-top: 1rem;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.meta-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #444466;
+}
+
+.meta-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* ── Badge Row ── */
+.badge-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+/* ── Ongoing Pill ── */
+.ongoing-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 3px 11px;
+    border-radius: 20px;
+    background: #1a1535;
+    color: var(--main-color);
+    border: 0.5px solid var(--main-color-border);
+}
+
+.dot-pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--main-color);
+    animation: pulse 1.5s infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+}
+
+
+
 /* Footer Section */
 .footer {
     display: flex;
