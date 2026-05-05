@@ -422,6 +422,190 @@
 </section>
 
 
+<!--Project Section-->
+
+
+
+<div class="glow-orb orb-1"></div>
+<div class="glow-orb orb-2"></div>
+
+<section class="projects-section">
+    <div class="section-header">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">My <span>Projects</span></h2>
+        <div class="section-underline"></div>
+    </div>
+
+    <div class="filter-tabs">
+        <button class="tab-btn active" onclick="filterProjects('all', this)">All</button>
+        <button class="tab-btn" onclick="filterProjects('web', this)">Web Design</button>
+        <button class="tab-btn" onclick="filterProjects('uiux', this)">UI/UX</button>
+        <button class="tab-btn" onclick="filterProjects('mobile', this)">Mobile</button>
+        <button class="tab-btn" onclick="filterProjects('fullstack', this)">Full Stack</button>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+
+        <!-- Card 1 -->
+        <div class="project-card" data-cat="web uiux">
+            <div class="card-img-wrapper">
+                <div class="placeholder-banner pb-1">
+                    <span class="banner-icon">🛒</span>
+                </div>
+                <span class="featured-badge">Featured</span>
+            </div>
+            <div class="card-body">
+                <div class="card-tags">
+                    <span class="tag tag-purple">React</span>
+                    <span class="tag tag-blue">Node.js</span>
+                    <span class="tag tag-green">MongoDB</span>
+                </div>
+                <h3 class="card-title">E-Commerce Platform</h3>
+                <p class="card-desc">A full-featured online shopping platform with cart management, payment integration, and admin dashboard.</p>
+                <div class="card-footer">
+                    <div class="card-links">
+                        <a href="#" class="link-btn link-live">Live</a>
+                        <a href="#" class="link-btn link-github">GitHub</a>
+                    </div>
+                    <span class="card-date">Jan 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="project-card" data-cat="uiux mobile">
+            <div class="card-img-wrapper">
+                <div class="placeholder-banner pb-2">
+                    <span class="banner-icon">📱</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="card-tags">
+                    <span class="tag tag-blue">Figma</span>
+                    <span class="tag tag-pink">Flutter</span>
+                </div>
+                <h3 class="card-title">Health Tracker App</h3>
+                <p class="card-desc">A mobile health & fitness tracking app with intuitive UI/UX design and progress visualization.</p>
+                <div class="card-footer">
+                    <div class="card-links">
+                        <a href="#" class="link-btn link-live">Demo</a>
+                        <a href="#" class="link-btn link-github">GitHub</a>
+                    </div>
+                    <span class="card-date">Mar 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="project-card" data-cat="web fullstack">
+            <div class="card-img-wrapper">
+                <div class="placeholder-banner pb-3">
+                    <span class="banner-icon">📊</span>
+                </div>
+                <span class="featured-badge">Featured</span>
+            </div>
+            <div class="card-body">
+                <div class="card-tags">
+                    <span class="tag tag-purple">Vue.js</span>
+                    <span class="tag tag-green">Python</span>
+                    <span class="tag tag-blue">MySQL</span>
+                </div>
+                <h3 class="card-title">Student Result System</h3>
+                <p class="card-desc">A web-based student management system for faculty to upload results and students to view records.</p>
+                <div class="card-footer">
+                    <div class="card-links">
+                        <a href="#" class="link-btn link-live">Live</a>
+                        <a href="#" class="link-btn link-github">GitHub</a>
+                    </div>
+                    <span class="card-date">Jun 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="project-card" data-cat="uiux web">
+            <div class="card-img-wrapper">
+                <div class="placeholder-banner pb-4">
+                    <span class="banner-icon">🎨</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="card-tags">
+                    <span class="tag tag-blue">Figma</span>
+                    <span class="tag tag-pink">Adobe XD</span>
+                </div>
+                <h3 class="card-title">Restaurant Booking UI</h3>
+                <p class="card-desc">Complete UI/UX design prototype for a restaurant reservation platform with table selection.</p>
+                <div class="card-footer">
+                    <div class="card-links">
+                        <a href="#" class="link-btn link-live">Figma</a>
+                        <a href="#" class="link-btn link-github">GitHub</a>
+                    </div>
+                    <span class="card-date">Aug 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="project-card" data-cat="fullstack web">
+            <div class="card-img-wrapper">
+                <div class="placeholder-banner pb-5">
+                    <span class="banner-icon">💬</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="card-tags">
+                    <span class="tag tag-purple">React</span>
+                    <span class="tag tag-green">Socket.io</span>
+                    <span class="tag tag-blue">Express</span>
+                </div>
+                <h3 class="card-title">Real-Time Chat App</h3>
+                <p class="card-desc">A real-time messaging application with group chats, file sharing, and emoji reactions.</p>
+                <div class="card-footer">
+                    <div class="card-links">
+                        <a href="#" class="link-btn link-live">Live</a>
+                        <a href="#" class="link-btn link-github">GitHub</a>
+                    </div>
+                    <span class="card-date">Oct 2024</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="project-card" data-cat="uiux web">
+            <div class="card-img-wrapper">
+                <div class="placeholder-banner pb-6">
+                    <span class="banner-icon">🌐</span>
+                </div>
+                <span class="featured-badge">Featured</span>
+            </div>
+            <div class="card-body">
+                <div class="card-tags">
+                    <span class="tag tag-purple">HTML/CSS</span>
+                    <span class="tag tag-pink">JavaScript</span>
+                </div>
+                <h3 class="card-title">Personal Portfolio</h3>
+                <p class="card-desc">My portfolio website designed from scratch with dark theme, smooth animations and responsive layout.</p>
+                <div class="card-footer">
+                    <div class="card-links">
+                        <a href="#" class="link-btn link-live">Live</a>
+                        <a href="#" class="link-btn link-github">GitHub</a>
+                    </div>
+                    <span class="card-date">Dec 2024</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="view-more-wrapper">
+        <button class="view-more-btn">View All Projects ↓</button>
+    </div>
+
+</section>
+
+
+
 <!--Footer Section-->
 <footer class="footer">
     <div class="social">
@@ -436,5 +620,9 @@
 </footer>
 
 <script src="https://www.hxstrive.com/cdn/libs/font-awesome/7.0.1/js/all.min.js"></script>
+
+
+
+
 </body>
 </html>

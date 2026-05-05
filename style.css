@@ -590,7 +590,7 @@ body {
     object-fit: contain;
 }
 
-/* form එක full width ගන්න */
+
 .contact-wrapper form {
     flex: 1;
 }
