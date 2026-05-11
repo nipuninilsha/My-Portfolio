@@ -711,46 +711,162 @@ body {
     padding: 4rem 3rem;
 }
 
-/* ── Section Wrapper ── */
+
+/* ═══════════════════════════════════════
+   KEYFRAME ANIMATIONS
+   All animations used across this section
+   ═══════════════════════════════════════ */
+
+/* Moves the shimmer light left-to-right across the gradient text */
+@keyframes shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+/* Gently floats the heading up and down (like levitating) */
+@keyframes floatY {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-6px); }
+}
+
+/* Fades and slides an element up on page load */
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Expands the divider line from 0 to full width on load */
+@keyframes expandLine {
+    from { width: 0; opacity: 0; }
+    to   { width: 80px; opacity: 1; }
+}
+
+/* Fades the ongoing dot in and out to show "in progress" status */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+}
+
+
+/* ═══════════════════════════════════════
+   SECTION WRAPPER
+   ═══════════════════════════════════════ */
+
 .edu-section {
     max-width: 1100px;
     margin: 0 auto;
 }
 
+
+/* ═══════════════════════════════════════
+   HEADING AREA — Eyebrow, Title, Divider
+   ═══════════════════════════════════════ */
+
+/* Small uppercase label above the main title */
 .edu-eyebrow {
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.6rem;
+    color: #f5c842; /* gold accent color */
+    margin-bottom: 0.8rem;
+    animation: fadeSlideUp 0.6s ease both; /* slides up on load */
 }
 
+/* Main section title with 3D layered text-shadow effect
+   Each shadow line is offset by 1px to create depth illusion */
 .edu-title {
     font-family: 'DM Serif Display', serif;
     font-size: clamp(2.5rem, 6vw, 3.8rem);
-    color: var(--text-color);
     line-height: 1.1;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
+    color: #f5c842;
+
+    /* 3D depth effect — 4 stacked shadow layers */
+    text-shadow:
+            1px 1px 0px #c8920a,   /* layer 1 — closest */
+            2px 2px 0px #a87200,   /* layer 2 */
+            3px 3px 0px #7a5200,   /* layer 3 */
+            4px 4px 0px #4a3000,   /* layer 4 — deepest */
+            0px 6px 20px rgba(245, 200, 66, 0.3); /* soft glow below */
+
+    animation: floatY 5s ease-in-out infinite,  /* continuous float */
+    fadeSlideUp 0.7s ease both;       /* slide up on load */
 }
 
+/* Italic part of title — resets inherited styles */
 .edu-title em {
     font-style: italic;
-    color: var(--muted);
 }
 
-.edu-divider {
-    height: 0.5px;
-    background: var(--border);
-    margin: 1.8rem 0 2.8rem;
+/* "Qualifications" word — animated gold-to-orange shimmer
+   Uses background-clip trick to paint gradient onto text */
+.shimmer-word {
+    background: linear-gradient(
+            90deg,
+            #fff7e0 0%,
+            #f5c842 25%,
+            #f97316 50%,
+            #f5c842 75%,
+            #fff7e0 100%
+    );
+    background-size: 200% auto;    /* wider than text so shimmer can travel */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;             /* must remove text-shadow when using background-clip */
+    animation: shimmer 3s linear infinite,  /* continuous shimmer */
+    fadeSlideUp 0.8s ease both;  /* slide up on load */
 }
 
-/* ── Timeline ── */
+/* Divider row — dot + expanding line + label */
+.edu-divider-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 1.2rem 0 2.8rem;
+    animation: fadeSlideUp 1s ease both; /* last element to fade in */
+}
+
+/* Glowing orange dot at the start of the divider */
+.edu-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f97316;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px #f97316; /* orange glow around dot */
+}
+
+/* Animated line — expands from 0 to 80px width on page load */
+.edu-line {
+    height: 2px;
+    width: 80px;
+    background: linear-gradient(90deg, #f5c842, #f97316);
+    border-radius: 2px;
+    animation: expandLine 1s ease 0.3s both; /* 0.3s delay so dot appears first */
+}
+
+/* Muted label on the right of divider (e.g. "Sri Lanka") */
+.edu-eyebrow-right {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: #555;
+    text-transform: uppercase;
+}
+
+
+/* ═══════════════════════════════════════
+   TIMELINE RAIL
+   Vertical line connecting all cards
+   ═══════════════════════════════════════ */
+
 .timeline {
     position: relative;
     padding-left: 2.5rem;
 }
 
+/* Vertical gradient line — fades out toward the bottom */
 .timeline-rail {
     position: absolute;
     left: 6px;
@@ -760,9 +876,13 @@ body {
     background: linear-gradient(to bottom, #333355, transparent);
 }
 
-/* ── Card ──
-   will-change: transform tells the browser to prepare GPU layer
-   for smooth animation — avoids jank on hover */
+
+/* ═══════════════════════════════════════
+   EDUCATION CARDS
+   will-change: transform prepares GPU layer
+   for smooth hover lift — prevents jank
+   ═══════════════════════════════════════ */
+
 .edu-card {
     position: relative;
     background: var(--snd-bg-color);
@@ -774,28 +894,33 @@ body {
     will-change: transform; /* GPU-accelerated smooth lift */
 }
 
-/* Card lifts up 6px and gets a dark shadow on hover */
+/* Card lifts 6px upward with a dark shadow on hover */
 .edu-card:hover {
     border-color: #3a3a5a;
     transform: translateY(-6px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* Highlighted card (Diploma) has a purple tint background */
+/* Diploma card has a special purple-tinted background */
 .edu-card.highlight {
     border-color: var(--main-color-border);
     background: #12102a;
 }
 
-/* Highlighted card gets a purple glow shadow on hover */
+/* Diploma card gets a purple glow on hover */
 .edu-card.highlight:hover {
     border-color: var(--main-color);
     box-shadow: 0 12px 40px rgba(139, 92, 246, 0.2); /* purple glow */
     transform: translateY(-6px);
 }
 
-/* ── Timeline Dot ──
-   Dots scale up and glow in their own color when the card is hovered */
+
+/* ═══════════════════════════════════════
+   TIMELINE DOTS
+   Each dot scales and glows its own color
+   when its parent card is hovered
+   ═══════════════════════════════════════ */
+
 .timeline-dot {
     position: absolute;
     left: -2.6rem;
@@ -805,26 +930,31 @@ body {
     border-radius: 50%;
     border: 2px solid var(--bg-color);
     box-sizing: border-box;
-    transition: transform 0.4s ease, box-shadow 0.4s ease; /* smooth scale + glow */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Each dot scales to 1.4x on card hover */
+/* Dot scales to 1.4x when its parent card is hovered */
 .edu-card:hover .timeline-dot {
     transform: scale(1.4);
 }
 
-/* Each dot glows in its own accent color */
+/* Each dot glows its own accent color on card hover */
 .edu-card:hover .dot-diploma { box-shadow: 0 0 10px var(--main-color); } /* purple */
-.edu-card:hover .dot-nvq     { box-shadow: 0 0 10px #D4537E; }           /* pink */
-.edu-card:hover .dot-al      { box-shadow: 0 0 10px #378ADD; }           /* blue */
-.edu-card:hover .dot-ol      { box-shadow: 0 0 10px #1D9E75; }           /* green */
+.edu-card:hover .dot-nvq     { box-shadow: 0 0 10px #D4537E; }           /* pink   */
+.edu-card:hover .dot-al      { box-shadow: 0 0 10px #378ADD; }           /* blue   */
+.edu-card:hover .dot-ol      { box-shadow: 0 0 10px #1D9E75; }           /* green  */
 
 .dot-diploma { background: var(--main-color); }
 .dot-nvq     { background: #D4537E; }
 .dot-al      { background: #378ADD; }
 .dot-ol      { background: #1D9E75; }
 
-/* ── Card Top Row ── */
+
+/* ═══════════════════════════════════════
+   CARD INNER LAYOUT
+   ═══════════════════════════════════════ */
+
+/* Top row — qualification name + badge side by side */
 .card-top {
     display: flex;
     align-items: flex-start;
@@ -834,6 +964,7 @@ body {
     margin-bottom: 0.4rem;
 }
 
+/* Small pill badge (Diploma / NVQ 4 / A/L / O/L) */
 .card-badge {
     font-size: 11px;
     font-weight: 500;
@@ -845,11 +976,13 @@ body {
     flex-shrink: 0;
 }
 
+/* Each badge uses its own accent color scheme */
 .badge-diploma { background: #1e1a3e; color: var(--main-color); border: 0.5px solid var(--main-color-border); }
 .badge-nvq     { background: #3a1528; color: #D4537E; }
 .badge-al      { background: #0d2a44; color: #5BA8F5; }
 .badge-ol      { background: #0a2a1e; color: #1D9E75; }
 
+/* Qualification title inside the card */
 .card-qual {
     font-family: 'DM Serif Display', serif;
     font-size: 1.4rem;
@@ -858,14 +991,19 @@ body {
     line-height: 1.3;
 }
 
+/* School / institution name below the qualification */
 .card-school {
     font-size: 15px;
     color: var(--muted);
     margin: 0 0 1.1rem;
 }
 
-/* ── Subject Tags ──
-   Smooth color + border transition on hover for both default and purple variants */
+
+/* ═══════════════════════════════════════
+   SUBJECT TAGS
+   Smooth color + border transition on hover
+   ═══════════════════════════════════════ */
+
 .card-subjects {
     display: flex;
     flex-wrap: wrap;
@@ -873,6 +1011,7 @@ body {
     margin-bottom: 1.2rem;
 }
 
+/* Default tag — subtle dark pill */
 .subject-tag {
     font-size: 14px;
     color: #999999;
@@ -880,7 +1019,7 @@ body {
     border: 0.5px solid var(--tag-border);
     padding: 5px 14px;
     border-radius: 20px;
-    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* smooth tag hover */
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     cursor: default;
 }
 
@@ -891,7 +1030,7 @@ body {
     color: #cccccc;
 }
 
-/* Purple tags (Diploma card) */
+/* Purple variant — used for Diploma card subjects */
 .subject-tag.purple {
     background: #1a1530;
     border-color: #3a3060;
@@ -899,14 +1038,19 @@ body {
     transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Purple tag glows brighter on hover */
+/* Purple tag glows and brightens on hover */
 .subject-tag.purple:hover {
     background: #221a40;
     border-color: var(--main-color);
     color: #d4bbff;
 }
 
-/* ── Meta Row ── */
+
+/* ═══════════════════════════════════════
+   CARD META ROW
+   Level / Field / Year at the bottom
+   ═══════════════════════════════════════ */
+
 .card-meta {
     display: flex;
     gap: 2.5rem;
@@ -921,6 +1065,7 @@ body {
     gap: 3px;
 }
 
+/* Small uppercase label (e.g. "LEVEL", "FIELD", "YEAR") */
 .meta-label {
     font-size: 11px;
     font-weight: 500;
@@ -929,13 +1074,19 @@ body {
     color: #444466;
 }
 
+/* Value below the label (e.g. "Diploma", "2024") */
 .meta-value {
     font-size: 15px;
     font-weight: 500;
     color: var(--text-color);
 }
 
-/* ── Badge Row ── */
+
+/* ═══════════════════════════════════════
+   BADGE ROW & ONGOING PILL
+   ═══════════════════════════════════════ */
+
+/* Stacks the badge + ongoing pill vertically on the right */
 .badge-row {
     display: flex;
     flex-direction: column;
@@ -943,7 +1094,7 @@ body {
     gap: 5px;
 }
 
-/* ── Ongoing Pill ── */
+/* "Ongoing" status pill with purple accent */
 .ongoing-pill {
     display: inline-flex;
     align-items: center;
@@ -958,8 +1109,8 @@ body {
     border: 0.5px solid var(--main-color-border);
 }
 
-/* ── Pulsing dot inside Ongoing pill ──
-   Fades in/out continuously to show "live / in progress" status */
+/* Pulsing dot inside the Ongoing pill
+   Fades in and out to show live/active status */
 .dot-pulse {
     width: 7px;
     height: 7px;
@@ -967,11 +1118,6 @@ body {
     background: var(--main-color);
     animation: pulse 1.5s infinite; /* continuous fade pulse */
     flex-shrink: 0;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0.3; }
 }
 /* Project Section*/
 * { margin: 0; padding: 0; box-sizing: border-box; }
