@@ -448,9 +448,39 @@ body {
     background-clip: text;
 }
 
-.skills h2 {
+@keyframes pulseGradient {
+    0%, 100% { opacity: 1; filter: brightness(1); }
+    50%       { opacity: 0.5; filter: brightness(1.6); }
+}
+
+@keyframes underlinePulse {
+    0%, 100% { width: 60px; opacity: 1; }
+    50%       { width: 130px; opacity: 0.5; }
+}
+
+.skills .heading {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #f3e7ff, #a855f7, #ec4899, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: pulseGradient 7s ease-in-out infinite;
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
+    display: block;
+}
+
+.skills .heading::after {
+    content: "";
+    display: block;
+    height: 4px;
+    background: linear-gradient(135deg, #a855f7, #ec4899, #f472b6);
+    border-radius: 2px;
+    animation: underlinePulse 7s ease-in-out infinite;
+    margin: 10px auto 0;
 }
 
 .skill-container {
