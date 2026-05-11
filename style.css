@@ -517,15 +517,46 @@ body {
     padding: 3rem 2rem;
 }
 
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes underlineWidth {
+    0%, 100% { width: 60px; }
+    50%       { width: 120px; }
+}
+
 .contact .heading {
-    color: #ffff;
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    background: linear-gradient(270deg, #fff7e0, #f5c842, #f97316, #ff4e00, #f5c842, #fff7e0);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 4s ease infinite;
     margin-bottom: 2rem;
+    display: block;
+    text-align: center;
 }
 
 .contact .heading span {
-    color: #3dcca0;
+    -webkit-text-fill-color: transparent; /* span එකත් gradient වලට */
+}
+
+.contact .heading::after {
+    content: "";
+    display: block;
+    height: 4px;
+    background: linear-gradient(270deg, #f5c842, #f97316, #ff4e00, #f5c842);
+    background-size: 300% 300%;
+    border-radius: 2px;
+    animation: gradientShift 4s ease infinite, underlineWidth 3s ease-in-out infinite;
+    margin: 10px auto 0;
 }
 
 .contact form {
