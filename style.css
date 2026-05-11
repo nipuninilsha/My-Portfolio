@@ -200,8 +200,9 @@ span {
     align-items: center;
 }
 
-#gallery > h2 {
+#gallery > h1 {
     margin-bottom: 50px;
+    margin-top: -80px;
 }
 
 .container {
