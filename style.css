@@ -760,7 +760,9 @@ body {
     background: linear-gradient(to bottom, #333355, transparent);
 }
 
-/* ── Card ── */
+/* ── Card ──
+   will-change: transform tells the browser to prepare GPU layer
+   for smooth animation — avoids jank on hover */
 .edu-card {
     position: relative;
     background: var(--snd-bg-color);
@@ -768,19 +770,32 @@ body {
     border-radius: 16px;
     padding: 2rem 2.5rem;
     margin-bottom: 1.8rem;
-    transition: border-color 0.2s;
+    transition: border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    will-change: transform; /* GPU-accelerated smooth lift */
 }
 
+/* Card lifts up 6px and gets a dark shadow on hover */
 .edu-card:hover {
     border-color: #3a3a5a;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
+/* Highlighted card (Diploma) has a purple tint background */
 .edu-card.highlight {
     border-color: var(--main-color-border);
     background: #12102a;
 }
 
-/* ── Timeline Dot ── */
+/* Highlighted card gets a purple glow shadow on hover */
+.edu-card.highlight:hover {
+    border-color: var(--main-color);
+    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.2); /* purple glow */
+    transform: translateY(-6px);
+}
+
+/* ── Timeline Dot ──
+   Dots scale up and glow in their own color when the card is hovered */
 .timeline-dot {
     position: absolute;
     left: -2.6rem;
@@ -790,7 +805,19 @@ body {
     border-radius: 50%;
     border: 2px solid var(--bg-color);
     box-sizing: border-box;
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* smooth scale + glow */
 }
+
+/* Each dot scales to 1.4x on card hover */
+.edu-card:hover .timeline-dot {
+    transform: scale(1.4);
+}
+
+/* Each dot glows in its own accent color */
+.edu-card:hover .dot-diploma { box-shadow: 0 0 10px var(--main-color); } /* purple */
+.edu-card:hover .dot-nvq     { box-shadow: 0 0 10px #D4537E; }           /* pink */
+.edu-card:hover .dot-al      { box-shadow: 0 0 10px #378ADD; }           /* blue */
+.edu-card:hover .dot-ol      { box-shadow: 0 0 10px #1D9E75; }           /* green */
 
 .dot-diploma { background: var(--main-color); }
 .dot-nvq     { background: #D4537E; }
@@ -837,7 +864,8 @@ body {
     margin: 0 0 1.1rem;
 }
 
-/* ── Subject Tags ── */
+/* ── Subject Tags ──
+   Smooth color + border transition on hover for both default and purple variants */
 .card-subjects {
     display: flex;
     flex-wrap: wrap;
@@ -852,12 +880,30 @@ body {
     border: 0.5px solid var(--tag-border);
     padding: 5px 14px;
     border-radius: 20px;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* smooth tag hover */
+    cursor: default;
 }
 
+/* Default tag brightens slightly on hover */
+.subject-tag:hover {
+    background: #1e1e35;
+    border-color: #4a4a6a;
+    color: #cccccc;
+}
+
+/* Purple tags (Diploma card) */
 .subject-tag.purple {
     background: #1a1530;
     border-color: #3a3060;
     color: #b39dfa;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Purple tag glows brighter on hover */
+.subject-tag.purple:hover {
+    background: #221a40;
+    border-color: var(--main-color);
+    color: #d4bbff;
 }
 
 /* ── Meta Row ── */
@@ -912,12 +958,14 @@ body {
     border: 0.5px solid var(--main-color-border);
 }
 
+/* ── Pulsing dot inside Ongoing pill ──
+   Fades in/out continuously to show "live / in progress" status */
 .dot-pulse {
     width: 7px;
     height: 7px;
     border-radius: 50%;
     background: var(--main-color);
-    animation: pulse 1.5s infinite;
+    animation: pulse 1.5s infinite; /* continuous fade pulse */
     flex-shrink: 0;
 }
 
