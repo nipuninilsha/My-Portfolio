@@ -28,3 +28,30 @@ document.querySelectorAll('.project-card').forEach((card, i) => {
         card.style.transform = 'translateY(0)';
     }, 100);
 });
+
+
+
+//about me
+
+const heading = document.getElementById('neon-heading');
+const words = [
+    { text: 'About', cls: 'word-about' },
+    { text: 'Me',    cls: 'word-me' }
+];
+let totalDelay = 0;
+words.forEach(word => {
+    const span = document.createElement('span');
+    span.className = word.cls;
+    [...word.text].forEach(char => {
+        const l = document.createElement('span');
+        l.className = 'letter';
+        l.textContent = char;
+        l.style.animationDelay = totalDelay + 's';
+        totalDelay += 0.1;
+        span.appendChild(l);
+    });
+    heading.appendChild(span);
+    totalDelay += 0.2;
+});
+
+
