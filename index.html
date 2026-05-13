@@ -3,363 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://www.hxstrive.com/cdn/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Nipuni Nilsha - Portfolio</title>
+    <title>Nipuni Nilsha — Portfolio</title>
 
-    <style>
-        /* Navbar Fix - Single Row */
-        .header {
-            display: flex;
-            align-items: center;
-            flex-wrap: nowrap;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-        .navbar {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 1rem;
-            white-space: nowrap;
-        }
-        .navbar a {
-            font-size: clamp(12px, 1.2vw, 15px);
-        }
-    </style>
+    <!-- Boxicons: icon library used for social icons, nav icons, etc. -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="header">
-    <a href="#home" class="logo">NN</a>
+<!-- Fixed background div — colour changes based on which section the user is viewing (controlled by JS) -->
+<div id="page-bg"></div>
 
-    <i class='bx bx-menu' id="menu-icon"></i>
+<!-- Cursor glow — a soft glowing circle that follows the mouse cursor (controlled by JS) -->
+<div id="cursor-glow"></div>
 
-    <nav class="navbar">
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#assignments">Assignments</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
+<!-- Thin progress bar at the very top of the page showing how far the user has scrolled -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ============================================================
+     HEADER — Fixed top navigation bar
+     Contains: logo, desktop nav links, mobile hamburger button
+     ============================================================ -->
+<header class="header" id="header">
+
+    <!-- Logo: "NN" with a pulsing dot — clicking takes you back to the home section -->
+    <a href="#home" class="logo">
+        <span class="logo-nn">NN</span>
+        <span class="logo-dot"></span>  <!-- animated pulsing dot beside the logo -->
+    </a>
+
+    <!-- Desktop navigation links — hidden on mobile, replaced by hamburger menu -->
+    <nav class="navbar" id="navbar">
+        <a href="#home"       class="nav-link active">Home</a>   <!-- "active" class highlights the current section -->
+        <a href="#about"      class="nav-link">About</a>
+        <a href="#skills"     class="nav-link">Skills</a>
+        <a href="#education"  class="nav-link">Education</a>
+        <a href="#projects"   class="nav-link">Projects</a>
+        <a href="#activities" class="nav-link">Activities</a>
+        <a href="#gallery"    class="nav-link">Gallery</a>
+
+        <!-- "Contact" styled as a special white pill button (different from regular nav links) -->
+        <a href="#contact" class="nav-cta">
+            <i class='bx bx-send'></i>
+            <span>Contact</span>
+        </a>
     </nav>
+
+    <!-- Hamburger button — only visible on mobile screens.
+         Clicking it toggles the nav menu open/closed (3 lines → X animation done in CSS/JS) -->
+    <button class="hamburger" id="menu-icon" aria-label="Toggle menu" aria-expanded="false">
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+    </button>
 </header>
 
 
-<!--Home Section Code-->
+<!-- ============================================================
+     HOME SECTION — First thing visible when the page loads
+     Contains: profile photo, name, role typing animation,
+               social links, and CTA buttons
+     ============================================================ -->
 <section class="home" id="home">
+
+    <!-- Animated star/particle background inside this section -->
+    <div class="space">
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+    </div>
+    <div class="star-layer"></div>
+    <div class="star-layer"></div><div class="star-layer"></div>
+    <div class="star-layer"></div>
+    </div>
+
+    <!-- Profile photo with a glowing ring animation around it -->
     <div class="home-img">
-        <img src="assets/images/Profile.jpeg" alt="Profile Image11">
+        <img src="assets/images/Profile.jpeg" alt="Nipuni Nilsha">
     </div>
 
+    <!-- Text content: greeting, name, typed role, description, links, buttons -->
     <div class="home-content">
-        <h3>Hi,I'm</h3>
-        <h1>Nipuni Nilsha</h1>
-        <h3>And I'm a <span class="multiple-text">Web Developer</span></h3>
-        <p>I am Nipuni Nilsha, a Software Engineering undergraduate with a passion
-            for web development and UI/UX design. I love building clean and creative
-            websites that make a real difference.</p>
+        <p class="greeting">Hi there, I'm</p>
 
+        <!-- Name with gradient colour applied via CSS -->
+        <h1><span class="name-grad">Nipuni</span><br>Nilsha</h1>
+
+        <!-- Role line — ".multiple-text" is where the typing animation appears (roles cycle via JS) -->
+        <p class="role-line">And I'm a <span class="multiple-text">Web Developer</span></p>
+
+        <p>A Software Engineering undergraduate with a passion for web development and UI/UX design.
+            I love building clean, responsive, and creative websites that make a real difference.</p>
+
+        <!-- Social media icon links -->
         <div class="social-media">
-            <a href="#" target="_blank"><i class='bx bxl-linkedin'></i></a>
-            <a href=https://github.com/nipuninilsha/My-Portfolio target="_blank"><i class='bx bxl-github'></i></a>
-            <a href="https://www.facebook.com/people/Nipuni-Nilsha/61581707308728/" target="_blank"><i class='bx bxl-facebook'></i></a>
-            <a href=https://www.instagram.com/___nipuninilsha___/  target="_blank"><i class='bx bxl-instagram'></i></a>
+            <a href="https://github.com/nipuninilsha"           target="_blank" title="GitHub">   <i class='bx bxl-github'></i></a>
+            <a href="https://www.linkedin.com/in/nipuni-nilsha" target="_blank" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://www.facebook.com/people/Nipuni-Nilsha/61581707308728/" target="_blank" title="Facebook"><i class='bx bxl-facebook'></i></a>
+            <a href="https://www.instagram.com/___nipuninilsha___/" target="_blank" title="Instagram"><i class='bx bxl-instagram'></i></a>
         </div>
 
-
+        <!-- Two call-to-action buttons -->
+        <div class="home-btns">
+            <a href="#contact"  class="btn">Hire Me</a>               <!-- filled gradient button -->
+            <a href="#projects" class="btn btn-outline">View Projects</a>  <!-- outlined/transparent button -->
+        </div>
     </div>
 </section>
 
 
-<script>
-    const roles = [
-        "Software Engineer",
-        "Web Developer",
-        "UI/UX Designer",
-        "Problem Solver",
-        "Full Stack Developer",
-        "Creative Thinker",
-        "Open Source Contributor"
-    ];
-
-    const el = document.querySelector(".multiple-text");
-    let roleIndex = 0;
-    let charIndex  = 0;
-    let isDeleting = false;
-
-    function type() {
-        const current = roles[roleIndex];
-
-        if (!isDeleting) {
-            el.textContent = current.slice(0, charIndex + 1);
-            charIndex++;
-            if (charIndex === current.length) {
-                isDeleting = true;
-                setTimeout(type, 1600);
-                return;
-            }
-        } else {
-            el.textContent = current.slice(0, charIndex - 1);
-            charIndex--;
-            if (charIndex === 0) {
-                isDeleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
-            }
-        }
-
-        setTimeout(type, isDeleting ? 60 : 100);
-    }
-
-    type();
-</script>
-
-</body>
-</html>
-
-<!--Gallery Code-->
-<section class="gallery" id="gallery">
-    <h1 style="margin-top: -80px;">My Gallery</h1>
-
-
-    <span class="gallery-subtitle">moments & memories</span>
-
-    <div class="container">
-        <div class="box box-1" style="--img: url(assets/Gallery/me.jpeg);" data-text="Me"></div>
-        <div class="box box-2" style="--img: url(assets/Gallery/Party.jpeg);" data-text="Party"></div>
-        <div class="box box-3" style="--img: url(assets/Gallery/Event.jpeg);" data-text="Event"></div>
-        <div class="box box-4" style="--img: url(assets/Gallery/IJSE.jpeg);" data-text="IJSE Friend"></div>
-        <div class="box box-5" style="--img: url(assets/Gallery/Trip.jpeg);" data-text="Trip"></div>
-        <div class="box box-6" style="--img: url(assets/Gallery/Me2.jpeg);" data-text="Me"></div>
-        <div class="box box-7" style="--img: url(assets/Gallery/Tec.jpeg);" data-text="Tec Friend"></div>
-        <div class="box box-8" style="--img: url(assets/Gallery/Flower.jpeg);" data-text="Flowers"></div>
-        <div class="box box-9" style="--img: url(assets/Gallery/Friend.jpeg);" data-text="My Childhood Friend"></div>
-        <div class="box box-10" style="--img: url(assets/Gallery/Me3.jpeg);" data-text="Me"></div>
-
-
-
-
-
-    </div>
-</section>
-
-<!--About Code-->
-
+<!-- ============================================================
+     ABOUT SECTION — Personal introduction and details
+     Contains: photo (swaps on hover), bio text, detail grid,
+               and a "Contact me" button
+     ============================================================ -->
 <section class="about" id="about">
-    <h2 class="heading" id="neon-heading"></h2>
 
-    <h1 style="margin-top: -80px;">About Me</h1>
-
-    <div class="about-img">
-        <img id="about-me-image" src="assets/images/about1.jpeg" alt="About Image">
-        <span class="circle-spin"></span>
+    <!-- Star background (same pattern repeated in every section) -->
+    <div class="space">
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+    </div>
+    <div class="section-stars">
+        <div class="star-layer"></div><div class="star-layer"></div>
+        <div class="star-layer"></div><div class="star-layer"></div>
+        <div class="star-layer"></div>
     </div>
 
-    <div class="about-content">
-        <h3>I'm a <span class="multiple-text-about"></span></h3>
-        <p><strong>Hi, I'm Nipuni Nilsha, an undergraduate IT student with a strong passion for web
-            development and UI/UX design. I enjoy creating clean, user-friendly, and responsive
-            websites that deliver meaningful digital experiences. Through academic projects and
-            continuous self-learning, I am developing solid skills in front-end technologies and design
-            principles. I am highly motivated to grow as a front-end developer and aspire to contribute
-            my creativity and technical knowledge to innovative and impactful web solutions.</strong></p>
+    <!-- About photo — JS swaps this image to about2.jpeg when hovered -->
+    <div class="about-img reveal-left">   <!-- "reveal-left" = slides in from the left when scrolled into view -->
+        <img id="about-me-image" src="assets/images/about1.jpeg" alt="About Nipuni Nilsha">
+        <span class="circle-spin"></span>  <!-- dashed rotating border around the photo -->
+    </div>
 
+    <!-- Text content block -->
+    <div class="about-content reveal-right">  <!-- "reveal-right" = slides in from the right -->
 
+        <!-- Section tag + title + divider line -->
+        <div class="section-header" style="text-align:left;margin-bottom:2.5rem;">
+            <span class="section-tag">About Me</span>
+
+            <!-- ".multiple-text-about" has its own separate typing animation (see JS) -->
+            <h2 class="section-title">I'm a <span class="multiple-text-about"></span></h2>
+            <div class="section-divider" style="margin:0;"></div>
+        </div>
+
+        <p>Hi! I'm <strong>Nipuni Nilsha</strong>, an undergraduate IT student with a strong passion for web development
+            and UI/UX design. I enjoy creating clean, user-friendly, and responsive websites that deliver meaningful
+            digital experiences. Through academic projects and continuous self-learning, I am developing solid skills
+            in front-end technologies and design principles.</p>
+
+        <!-- Grid of personal detail items (Name, Study, Location, etc.) -->
+        <div class="about-details">
+            <div class="detail-item"><span class="detail-label">Name</span><span class="detail-value">Nipuni Nilsha</span></div>
+            <div class="detail-item"><span class="detail-label">Study</span><span class="detail-value">Diploma in Software Engineering</span></div>
+            <div class="detail-item"><span class="detail-label">Location</span><span class="detail-value">Sri Lanka 🇱🇰</span></div>
+            <div class="detail-item"><span class="detail-label">Interests</span><span class="detail-value">Web Dev · UI/UX · Java</span></div>
+            <div class="detail-item"><span class="detail-label">Email</span><span class="detail-value"><a href="mailto:nipuninilsha@email.com">nipuninilsha@email.com</a></span></div>
+            <div class="detail-item"><span class="detail-label">GitHub</span><span class="detail-value"><a href="https://github.com/nipuninilsha" target="_blank">nipuninilsha</a></span></div>
+        </div>
+
+        <a href="#contact" class="btn">Contact me</a>
     </div>
 </section>
 
-<script>
-    const texts = ["Web Developer", "UI/UX Designer", "Front-End Developer", "Creative Coder"];
-    let aboutTextIndex = 0;
-    let aboutCharIndex = 0;
-    let aboutIsDeleting = false;
 
-    const aboutTypingElement = document.querySelector('.multiple-text-about');
-
-    function aboutTypeEffect() {
-        const currentText = texts[aboutTextIndex];
-
-        if (aboutIsDeleting) {
-            aboutTypingElement.textContent = currentText.substring(0, aboutCharIndex - 1);
-            aboutCharIndex--;
-        } else {
-            aboutTypingElement.textContent = currentText.substring(0, aboutCharIndex + 1);
-            aboutCharIndex++;
-        }
-
-        if (!aboutIsDeleting && aboutCharIndex === currentText.length) {
-            aboutIsDeleting = true;
-            setTimeout(aboutTypeEffect, 1500);
-            return;
-        }
-
-        if (aboutIsDeleting && aboutCharIndex === 0) {
-            aboutIsDeleting = false;
-            aboutTextIndex = (aboutTextIndex + 1) % texts.length;
-        }
-
-        const speed = aboutIsDeleting ? 80 : 120;
-        setTimeout(aboutTypeEffect, speed);
-    }
-
-    aboutTypeEffect();
-</script>
-
-<!--Skills Code-->
+<!-- ============================================================
+     SKILLS SECTION — Three skill category cards
+     Each card has an icon, title, description, tech tags,
+     and a "See Projects" button
+     ============================================================ -->
 <section class="skills" id="skills">
-    <h1 class="heading">My Skills</h1>
+    <div class="space">
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+    </div>
+    <div class="section-stars">
+        <div class="star-layer"></div><div class="star-layer"></div>
+        <div class="star-layer"></div><div class="star-layer"></div>
+        <div class="star-layer"></div>
+    </div>
 
+    <!-- Section heading -->
+    <div class="section-header reveal">
+        <span class="section-tag">What I Do</span>
+        <h2 class="section-title">My <span>Skill Set</span></h2>
+        <div class="section-divider"></div>
+        <p class="section-sub">A blend of front-end craft, design sensibility, and solid programming foundations
+            built through coursework and personal projects.</p>
+    </div>
+
+    <!-- Three skill cards in a grid -->
     <div class="skill-container">
-        <div class="skill-box">
-            <i class="bx bx-code"></i>
+
+        <!-- Skill Card 1: Web Development -->
+        <div class="skill-box reveal">
+            <i class='bx bx-code-alt'></i>
             <h3>Web Development</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab at excepturi explicabo facere illum ipsa libero magnam maiores, minima minus molestias nesciunt, officiis quidem repellat sapiente veniam vitae voluptates. Tempora!</p>
-            <a href="#" class="btn">Read More</a>
+            <p>Building responsive, accessible, and performant websites from scratch using modern HTML5, CSS3, and JavaScript — no frameworks, pure craft.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">HTML5</span><span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span><span class="tech-tag">Responsive Design</span>
+            </div>
+            <a href="#projects" class="btn" style="font-size:1.3rem;padding:0.9rem 2.4rem;">See Projects</a>
         </div>
 
-        <div class="skill-box">
-            <i class="bx bx-palette"></i>
+        <!-- Skill Card 2: UI/UX Design -->
+        <div class="skill-box reveal">
+            <i class='bx bx-palette'></i>
             <h3>UI/UX Design</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab at excepturi explicabo facere illum ipsa libero magnam maiores, minima minus molestias nesciunt, officiis quidem repellat sapiente veniam vitae voluptates. Tempora!</p>
-            <a href="#" class="btn">Read More</a>
+            <p>Crafting user-centred interfaces with a strong eye for visual hierarchy, colour theory, and accessibility. From wireframes to high-fidelity Figma prototypes.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">Figma</span><span class="tech-tag">Wireframing</span>
+                <span class="tech-tag">Prototyping</span><span class="tech-tag">Adobe XD</span>
+            </div>
+            <a href="#projects" class="btn" style="font-size:1.3rem;padding:0.9rem 2.4rem;">See Designs</a>
         </div>
 
-        <div class="skill-box">
-            <i class="fa-brands fa-accusoft" style="color: rgb(45, 122, 99); font-size: 75px"></i>
+        <!-- Skill Card 3: App Development -->
+        <div class="skill-box reveal">
+            <i class='bx bx-terminal'></i>
             <h3>App Development</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab at excepturi explicabo facere illum ipsa libero magnam maiores, minima minus molestias nesciunt, officiis quidem repellat sapiente veniam vitae voluptates. Tempora!</p>
-            <a href="#" class="btn">Read More</a>
+            <p>Developing robust desktop applications using Java and JavaFX, applying object-oriented principles, design patterns, and database integration.</p>
+            <div class="tech-tags">
+                <span class="tech-tag">Java</span><span class="tech-tag">JavaFX</span>
+                <span class="tech-tag">MySQL</span><span class="tech-tag">OOP</span>
+            </div>
+            <a href="#projects" class="btn" style="font-size:1.3rem;padding:0.9rem 2.4rem;">See Work</a>
         </div>
     </div>
 </section>
 
-<!--Contact Section-->
 
-
-<section class="contact" id="contact">
-    <h2 class="heading">Contact Me</h2>
-
-    <div class="contact-wrapper">
-        <!-- Sticker left side -->
-        <div class="contact-img">
-            <img src="assets/contact/sticker.jpg" alt="sticker">
-        </div>
-
-        <!-- Form right side -->
-        <form action="#">
-            <div class="input-box">
-                <input type="text" placeholder="Full Name">
-                <input type="email" placeholder="Email Address">
-            </div>
-            <div class="input-box">
-                <input type="number" placeholder="Phone Number">
-                <input type="text" placeholder="Email Subject">
-            </div>
-            <textarea name="message" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <input type="submit" value="Send Message" class="btn">
-        </form>
+<!-- ============================================================
+     EDUCATION SECTION — Timeline of academic qualifications
+     Each edu-card represents one qualification (Diploma, NVQ, A/L, O/L)
+     ============================================================ -->
+<section class="edu-section" id="education">
+    <div class="space">
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
     </div>
-</section>
+    <div class="section-stars">
+        <div class="star-layer"></div><div class="star-layer"></div>
+        <div class="star-layer"></div><div class="star-layer"></div>
+        <div class="star-layer"></div>
+    </div>
 
-<!--education section-->
+    <!-- Section heading -->
+    <p class="edu-eyebrow reveal">✦ Academic Background</p>
+    <h2 class="edu-title reveal">Education &amp; <em class="shimmer-word">Qualifications</em></h2>
 
-<section class="edu-section">
-
-    <p class="edu-eyebrow">✦ Academic background</p>
-    <h2 class="edu-title">Education & <em class="shimmer-word">Qualifications</em></h2>
-    <div class="edu-divider-wrap">
+    <!-- Decorative divider with a dot, line, and country label -->
+    <div class="edu-divider-wrap reveal">
         <div class="edu-dot"></div>
         <div class="edu-line"></div>
         <span class="edu-eyebrow-right">Sri Lanka</span>
     </div>
 
+    <!-- Timeline container — the vertical rail line is drawn with .timeline-rail -->
     <div class="timeline">
-        <div class="timeline-rail"></div>
+        <div class="timeline-rail"></div>  <!-- the vertical purple line running through all cards -->
 
-        <!-- ── Diploma in Software Engineering ── -->
-        <div class="edu-card highlight">
-            <div class="timeline-dot dot-diploma"></div>
+        <!-- ── Education Card 1: Diploma (current / ongoing) ── -->
+        <div class="edu-card highlight reveal">
+            <div class="timeline-dot dot-diploma"></div>  <!-- purple dot on the timeline rail -->
             <div class="card-top">
                 <div>
                     <p class="card-qual">Diploma in Software Engineering</p>
-                    <p class="card-school">Institute Name · Sri Lanka</p>
+                    <p class="card-school">IJSE — Institute of Java &amp; Software Engineering · Sri Lanka</p>
                 </div>
                 <div class="badge-row">
                     <span class="card-badge badge-diploma">Diploma</span>
-                    <span class="ongoing-pill">
-              <span class="dot-pulse"></span>Ongoing
-            </span>
+                    <!-- "Ongoing" pill with a pulsing dot to indicate currently studying -->
+                    <span class="ongoing-pill"><span class="dot-pulse"></span>Ongoing</span>
                 </div>
             </div>
+            <!-- Subject tags shown as small pill labels -->
             <div class="card-subjects">
                 <span class="subject-tag purple">Software Development</span>
                 <span class="subject-tag purple">Object Oriented Programming</span>
                 <span class="subject-tag purple">Database Systems</span>
                 <span class="subject-tag purple">Web Technologies</span>
-                <span class="subject-tag purple">System Analysis & Design</span>
-                <span class="subject-tag purple">Data Structures & Algorithms</span>
-                <span class="subject-tag purple">Git & Version Control</span>
+                <span class="subject-tag purple">System Analysis &amp; Design</span>
+                <span class="subject-tag purple">Data Structures &amp; Algorithms</span>
+                <span class="subject-tag purple">Git &amp; Version Control</span>
                 <span class="subject-tag purple">Java / Python / C++</span>
-
             </div>
+            <!-- Meta info row at the bottom of the card -->
             <div class="card-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Level</span>
-                    <span class="meta-value">Diploma</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Field</span>
-                    <span class="meta-value">Software Engineering</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Year</span>
-                    <span class="meta-value">2024 — Present</span>
-                </div>
+                <div class="meta-item"><span class="meta-label">Level</span><span class="meta-value">Diploma</span></div>
+                <div class="meta-item"><span class="meta-label">Field</span><span class="meta-value">Software Engineering</span></div>
+                <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2024 — Present</span></div>
             </div>
         </div>
 
-        <!-- ── NVQ Level 4 ICT ── -->
-        <div class="edu-card">
-            <div class="timeline-dot dot-nvq"></div>
+        <!-- ── Education Card 2: NVQ Level 4 ── -->
+        <div class="edu-card reveal">
+            <div class="timeline-dot dot-nvq"></div>  <!-- blue dot -->
             <div class="card-top">
                 <div>
-                    <p class="card-qual">NVQ Level 4 — Information & Communication Technology</p>
+                    <p class="card-qual">NVQ Level 4 — Information &amp; Communication Technology</p>
                     <p class="card-school">National Vocational Qualification · Sri Lanka</p>
                 </div>
                 <span class="card-badge badge-nvq">NVQ 4</span>
             </div>
             <div class="card-subjects">
-                <span class="subject-tag">Computer Hardware Setup & Maintenance</span>
-                <span class="subject-tag">Microsoft Office Suite (Word, Excel, PowerPoint)</span>
+                <span class="subject-tag">Computer Hardware &amp; Maintenance</span>
+                <span class="subject-tag">Microsoft Office Suite</span>
                 <span class="subject-tag">Troubleshooting PC Issues</span>
-                <span class="subject-tag">Operating System Installation (Windows/Linux)</span>
-                <span class="subject-tag">Database Design & Normalization</span>
-                <span class="subject-tag">Backup & Recovery</span>
-                <span class="subject-tag">Wi-Fi Setup & Security</span>
+                <span class="subject-tag">Operating System Installation</span>
+                <span class="subject-tag">Database Design &amp; Normalization</span>
+                <span class="subject-tag">Backup &amp; Recovery</span>
+                <span class="subject-tag">Wi-Fi Setup &amp; Security</span>
                 <span class="subject-tag">ER Diagrams</span>
-
             </div>
             <div class="card-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Level</span>
-                    <span class="meta-value">NVQ 4</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Field</span>
-                    <span class="meta-value">ICT</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Year</span>
-                    <span class="meta-value">2024</span>
-                </div>
+                <div class="meta-item"><span class="meta-label">Level</span><span class="meta-value">NVQ 4</span></div>
+                <div class="meta-item"><span class="meta-label">Field</span><span class="meta-value">ICT</span></div>
+                <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2024</span></div>
             </div>
         </div>
 
-        <!-- ── G.C.E. Advanced Level ── -->
-        <div class="edu-card">
-            <div class="timeline-dot dot-al"></div>
+        <!-- ── Education Card 3: G.C.E. A/L ── -->
+        <div class="edu-card reveal">
+            <div class="timeline-dot dot-al"></div>  <!-- green dot -->
             <div class="card-top">
                 <div>
                     <p class="card-qual">G.C.E. Advanced Level (A/L)</p>
@@ -368,30 +349,19 @@
                 <span class="card-badge badge-al">A/L</span>
             </div>
             <div class="card-subjects">
-                <span class="subject-tag">Logic</span>
-                <span class="subject-tag">Political Science</span>
-                <span class="subject-tag">History</span>
-                <span class="subject-tag">General English</span>
+                <span class="subject-tag">Logic</span><span class="subject-tag">Political Science</span>
+                <span class="subject-tag">History</span><span class="subject-tag">General English</span>
             </div>
             <div class="card-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Stream</span>
-                    <span class="meta-value">Arts</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">School</span>
-                    <span class="meta-value">Kalutara Balika</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Year</span>
-                    <span class="meta-value">2022</span>
-                </div>
+                <div class="meta-item"><span class="meta-label">Stream</span><span class="meta-value">Arts</span></div>
+                <div class="meta-item"><span class="meta-label">School</span><span class="meta-value">Kalutara Balika</span></div>
+                <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2022</span></div>
             </div>
         </div>
 
-        <!-- ── G.C.E. Ordinary Level ── -->
-        <div class="edu-card">
-            <div class="timeline-dot dot-ol"></div>
+        <!-- ── Education Card 4: G.C.E. O/L ── -->
+        <div class="edu-card reveal">
+            <div class="timeline-dot dot-ol"></div>  <!-- yellow/amber dot -->
             <div class="card-top">
                 <div>
                     <p class="card-qual">G.C.E. Ordinary Level (O/L)</p>
@@ -400,29 +370,147 @@
                 <span class="card-badge badge-ol">O/L</span>
             </div>
             <div class="card-subjects">
-                <span class="subject-tag">Mathematics</span>
-                <span class="subject-tag">Science</span>
-                <span class="subject-tag">Sinhala Literature</span>
-                <span class="subject-tag">Geography</span>
-                <span class="subject-tag">Agricultural Science</span>
-                <span class="subject-tag">English</span>
-                <span class="subject-tag">Buddhism</span>
-                <span class="subject-tag">History</span>
+                <span class="subject-tag">Mathematics</span><span class="subject-tag">Science</span>
+                <span class="subject-tag">Sinhala Literature</span><span class="subject-tag">Geography</span>
+                <span class="subject-tag">Agricultural Science</span><span class="subject-tag">English</span>
+                <span class="subject-tag">Buddhism</span><span class="subject-tag">History</span>
                 <span class="subject-tag">Sinhala Language</span>
             </div>
             <div class="card-meta">
-                <div class="meta-item">
-                    <span class="meta-label">School</span>
-                    <span class="meta-value">Potuvilla Central</span>
+                <div class="meta-item"><span class="meta-label">School</span><span class="meta-value">Potuvilla Central</span></div>
+                <div class="meta-item"><span class="meta-label">Subjects</span><span class="meta-value">9 Subjects</span></div>
+                <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2019</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     PROJECTS SECTION — Academic project cards
+     Each card has: cover image, course label, title,
+     subtitle, description, feature list, tech tags, GitHub link
+     ============================================================ -->
+<section class="assignments-section" id="projects">
+    <div class="space">
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+    </div>
+    <div class="section-stars">
+        <div class="star-layer"></div><div class="star-layer"></div>
+        <div class="star-layer"></div><div class="star-layer"></div>
+        <div class="star-layer"></div>
+    </div>
+
+    <div class="section-header reveal">
+        <span class="section-tag">My Work</span>
+        <h2 class="section-title">Academic <span>Projects</span></h2>
+        <div class="section-divider"></div>
+    </div>
+
+    <!-- Three project cards in a grid -->
+    <div class="assignments-grid">
+
+        <!-- ── Project Card 1: Stock Management System ── -->
+        <div class="assignment-card reveal">
+            <!-- Cover image — onerror fallback shows a local image if the URL fails -->
+            <div class="card-img-wrap">
+                <img
+                        src="https://codewithcurious.com/wp-content/uploads/2023/02/Capture-5.png.webp"
+                        alt="Stock Management System"
+                        onerror="this.src='assets/images/bookshop_layerd.png'"
+                >
+            </div>
+            <span class="assignment-course">PRF Coursework</span>
+            <h3 class="assignment-title">Stock Management System</h3>
+            <p class="assignment-subtitle">Programming Fundamentals — Java CLI</p>
+            <p class="assignment-desc">A comprehensive CLI-based stock management system built in Java. Provides complete
+                inventory lifecycle management with real-time stock tracking and automated alerts.</p>
+            <p class="features-heading">Key Features</p>
+            <ul class="features-list">
+                <li>Real-time inventory tracking</li>
+                <li>Automated low-stock alerts</li>
+                <li>Robust data validation</li>
+                <li>Data persistence with file I/O</li>
+            </ul>
+            <div class="assignment-footer">
+                <div class="assignment-tech-tags">
+                    <span class="assignment-tech-tag">Java</span>
+                    <span class="assignment-tech-tag">CLI</span>
+                    <span class="assignment-tech-tag">File I/O</span>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Subjects</span>
-                    <span class="meta-value">9 subjects</span>
+                <a href="https://github.com/nipuninilsha" target="_blank" class="github-btn">
+                    <i class='bx bxl-github'></i> GitHub
+                </a>
+            </div>
+        </div>
+
+        <!-- ── Project Card 2: Connect Four Game with AI ── -->
+        <div class="assignment-card reveal">
+            <div class="card-img-wrap">
+                <img
+                        src="https://cms-assets.tutsplus.com/cdn-cgi/image/width=850/uploads/users/1885/posts/109043/image-upload/connect4_play.png"
+                        alt="Connect Four Game"
+                        onerror="this.src='assets/images/bookshop_layerd.png'"
+                >
+            </div>
+            <span class="assignment-course">OOP Coursework</span>
+            <h3 class="assignment-title">Connect Four Game with AI</h3>
+            <p class="assignment-subtitle">Object-Oriented Programming — Java</p>
+            <p class="assignment-desc">A fully-featured Connect Four implementation featuring an intelligent AI
+                opponent powered by the Minimax algorithm with Alpha-Beta pruning.</p>
+            <p class="features-heading">Key Features</p>
+            <ul class="features-list">
+                <li>Minimax AI algorithm</li>
+                <li>Alpha-Beta pruning</li>
+                <li>Multiple difficulty levels</li>
+                <li>Player vs Player mode</li>
+            </ul>
+            <div class="assignment-footer">
+                <div class="assignment-tech-tags">
+                    <span class="assignment-tech-tag">Java</span>
+                    <span class="assignment-tech-tag">OOP</span>
+                    <span class="assignment-tech-tag">AI / Minimax</span>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Year</span>
-                    <span class="meta-value">2019</span>
+                <a href="https://github.com/nipuninilsha" target="_blank" class="github-btn">
+                    <i class='bx bxl-github'></i> GitHub
+                </a>
+            </div>
+        </div>
+
+        <!-- ── Project Card 3: POS System ── -->
+        <div class="assignment-card reveal">
+            <div class="card-img-wrap">
+                <img
+                        src="assets/images/projects/bookshop_project_mvc.png"
+                        alt="Point of Sale System"
+                        onerror="this.src='assets/images/bookshop_layerd.png'"
+                >
+            </div>
+            <span class="assignment-course">GDSE Final Project</span>
+            <h3 class="assignment-title">Point of Sale (POS) System</h3>
+            <p class="assignment-subtitle">GDSE Semester Final Project — JavaFX &amp; MySQL</p>
+            <p class="assignment-desc">A full-featured Point of Sale system built with JavaFX and MySQL, designed for
+                small to medium retail businesses. Handles complete sales lifecycle management.</p>
+            <p class="features-heading">Key Features</p>
+            <ul class="features-list">
+                <li>Complete inventory management</li>
+                <li>Real-time billing &amp; invoices</li>
+                <li>Customer database CRM</li>
+                <li>Sales reports &amp; analytics</li>
+            </ul>
+            <div class="assignment-footer">
+                <div class="assignment-tech-tags">
+                    <span class="assignment-tech-tag">JavaFX</span>
+                    <span class="assignment-tech-tag">MySQL</span>
+                    <span class="assignment-tech-tag">MVC</span>
                 </div>
+                <a href="https://github.com/nipuninilsha" target="_blank" class="github-btn">
+                    <i class='bx bxl-github'></i> GitHub
+                </a>
             </div>
         </div>
 
@@ -430,208 +518,237 @@
 </section>
 
 
-<!--Project Section-->
-
-
-
-<div class="glow-orb orb-1"></div>
-<div class="glow-orb orb-2"></div>
-
-<section class="projects-section">
-    <div class="section-header">
-        <span class="section-tag">Portfolio</span>
-        <h2 class="section-title">My <span>Projects</span></h2>
-        <div class="section-underline"></div>
+<!-- ============================================================
+     ACTIVITIES SECTION — Hobbies and extracurricular interests
+     Six activity cards each with a photo, title, description, badge
+     ============================================================ -->
+<section class="activities-section" id="activities">
+    <div class="space">
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+    </div>
+    <div class="section-stars">
+        <div class="star-layer"></div><div class="star-layer"></div>
+        <div class="star-layer"></div><div class="star-layer"></div>
+        <div class="star-layer"></div>
     </div>
 
-    <div class="filter-tabs">
-        <button class="tab-btn active" onclick="filterProjects('all', this)">All</button>
-        <button class="tab-btn" onclick="filterProjects('web', this)">Web Design</button>
-        <button class="tab-btn" onclick="filterProjects('uiux', this)">UI/UX</button>
-        <button class="tab-btn" onclick="filterProjects('mobile', this)">Mobile</button>
-        <button class="tab-btn" onclick="filterProjects('fullstack', this)">Full Stack</button>
+    <div class="section-header reveal">
+        <span class="section-tag">Beyond Code</span>
+        <h2 class="section-title">Activities &amp; <span>Interests</span></h2>
+        <div class="section-divider"></div>
+        <p class="section-sub">Extracurricular activities, hobbies, and experiences that shape who I am beyond the screen.</p>
     </div>
 
-    <div class="projects-grid" id="projectsGrid">
+    <!-- Activity cards grid -->
+    <div class="activities-grid">
 
-        <!-- Card 1 -->
-        <div class="project-card" data-cat="Bookshop SMS">
-            <div class="card-img-wrapper">
-                <div class="placeholder-banner pb-1">
-                    <span class="banner-icon">
-                        <img src="assets/images/projects/bookshop_project.png">
-                    </span>
-                </div>
-                <span class="featured-badge">Featured</span>
+        <!-- Activity 1: UI/UX Exploration -->
+        <div class="activity-card reveal">
+            <div class="activity-img-wrap">
+                <img
+                        src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80"
+                        alt="UI UX Design"
+                        onerror="this.parentElement.style.background='linear-gradient(135deg,#ede9fe,#c4b5fd)'"
+                >
             </div>
-            <div class="card-body">
-                <div class="card-tags">
-                    <span class="tag tag-purple">Java</span>
-                    <span class="tag tag-blue"></span>
-                    <span class="tag tag-green">MongoDB</span>
-                </div>
-                <h3 class="card-title">Bookshop SMS</h3>
-                <p class="card-desc">A full-featured online shopping platform with cart management, payment integration, and admin dashboard.</p>
-                <div class="card-footer">
-                    <div class="card-links">
-                        <a href="https://github.com/nipuninilsha/Bookshop-pos-system.git" target="_blank" class="link-btn link-github">GitHub</a>
-                    </div>
-                    <span class="card-date">Jan 2024</span>
-                </div>
-            </div>
+            <h3>UI/UX Exploration</h3>
+            <p>Designing user interfaces, exploring design systems, and creating aesthetic digital experiences using Figma and Adobe XD.</p>
+            <span class="activity-badge">Design</span>
         </div>
 
-        <!-- Card 2 -->
-        <div class="project-card" data-cat="uiux mobile">
-            <div class="card-img-wrapper">
-                <div class="placeholder-banner pb-2">
-                    <span class="banner-icon">📱</span>
-                </div>
+        <!-- Activity 2: Continuous Learning -->
+        <div class="activity-card reveal">
+            <div class="activity-img-wrap">
+                <img
+                        src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80"
+                        alt="Continuous Learning"
+                        onerror="this.parentElement.style.background='linear-gradient(135deg,#dbeafe,#93c5fd)'"
+                >
             </div>
-            <div class="card-body">
-                <div class="card-tags">
-                    <span class="tag tag-blue">Figma</span>
-                    <span class="tag tag-pink">Flutter</span>
-                </div>
-                <h3 class="card-title">Health Tracker App</h3>
-                <p class="card-desc">A mobile health & fitness tracking app with intuitive UI/UX design and progress visualization.</p>
-                <div class="card-footer">
-                    <div class="card-links">
-                        <a href="#" class="link-btn link-live">Demo</a>
-                        <a href="#" class="link-btn link-github">GitHub</a>
-                    </div>
-                    <span class="card-date">Mar 2024</span>
-                </div>
-            </div>
+            <h3>Continuous Learning</h3>
+            <p>Actively following web development trends, taking online courses, and building personal projects to expand knowledge.</p>
+            <span class="activity-badge">Self-Development</span>
         </div>
 
-        <!-- Card 3 -->
-        <div class="project-card" data-cat="web fullstack">
-            <div class="card-img-wrapper">
-                <div class="placeholder-banner pb-3">
-                    <span class="banner-icon">📊</span>
-                </div>
-                <span class="featured-badge">Featured</span>
+        <!-- Activity 3: Community & Collaboration -->
+        <div class="activity-card reveal">
+            <div class="activity-img-wrap">
+                <img
+                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
+                        alt="Community Collaboration"
+                        onerror="this.parentElement.style.background='linear-gradient(135deg,#dcfce7,#86efac)'"
+                >
             </div>
-            <div class="card-body">
-                <div class="card-tags">
-                    <span class="tag tag-purple">Vue.js</span>
-                    <span class="tag tag-green">Python</span>
-                    <span class="tag tag-blue">MySQL</span>
-                </div>
-                <h3 class="card-title">Student Result System</h3>
-                <p class="card-desc">A web-based student management system for faculty to upload results and students to view records.</p>
-                <div class="card-footer">
-                    <div class="card-links">
-                        <a href="#" class="link-btn link-live">Live</a>
-                        <a href="#" class="link-btn link-github">GitHub</a>
-                    </div>
-                    <span class="card-date">Jun 2024</span>
-                </div>
-            </div>
+            <h3>Community &amp; Collaboration</h3>
+            <p>Participating in student tech communities at IJSE, collaborating on group projects, and sharing knowledge with peers.</p>
+            <span class="activity-badge">Teamwork</span>
         </div>
 
-        <!-- Card 4 -->
-        <div class="project-card" data-cat="uiux web">
-            <div class="card-img-wrapper">
-                <div class="placeholder-banner pb-4">
-                    <span class="banner-icon">🎨</span>
-                </div>
+        <!-- Activity 4: Photography -->
+        <div class="activity-card reveal">
+            <div class="activity-img-wrap">
+                <img
+                        src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=600&q=80"
+                        alt="Photography"
+                        onerror="this.parentElement.style.background='linear-gradient(135deg,#fce7f3,#f9a8d4)'"
+                >
             </div>
-            <div class="card-body">
-                <div class="card-tags">
-                    <span class="tag tag-blue">Figma</span>
-                    <span class="tag tag-pink">Adobe XD</span>
-                </div>
-                <h3 class="card-title">Restaurant Booking UI</h3>
-                <p class="card-desc">Complete UI/UX design prototype for a restaurant reservation platform with table selection.</p>
-                <div class="card-footer">
-                    <div class="card-links">
-                        <a href="#" class="link-btn link-live">Figma</a>
-                        <a href="#" class="link-btn link-github">GitHub</a>
-                    </div>
-                    <span class="card-date">Aug 2024</span>
-                </div>
-            </div>
+            <h3>Photography</h3>
+            <p>Capturing everyday moments, nature, and events through the lens — a creative outlet that sharpens my eye for visual composition.</p>
+            <span class="activity-badge">Creative</span>
         </div>
 
-        <!-- Card 5 -->
-        <div class="project-card" data-cat="fullstack web">
-            <div class="card-img-wrapper">
-                <div class="placeholder-banner pb-5">
-                    <span class="banner-icon">💬</span>
-                </div>
+        <!-- Activity 5: Travel & Exploration -->
+        <div class="activity-card reveal">
+            <div class="activity-img-wrap">
+                <img
+                        src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=600&q=80"
+                        alt="Travel Exploration"
+                        onerror="this.parentElement.style.background='linear-gradient(135deg,#d1fae5,#6ee7b7)'"
+                >
             </div>
-            <div class="card-body">
-                <div class="card-tags">
-                    <span class="tag tag-purple">React</span>
-                    <span class="tag tag-green">Socket.io</span>
-                    <span class="tag tag-blue">Express</span>
-                </div>
-                <h3 class="card-title">Real-Time Chat App</h3>
-                <p class="card-desc">A real-time messaging application with group chats, file sharing, and emoji reactions.</p>
-                <div class="card-footer">
-                    <div class="card-links">
-                        <a href="#" class="link-btn link-live">Live</a>
-                        <a href="#" class="link-btn link-github">GitHub</a>
-                    </div>
-                    <span class="card-date">Oct 2024</span>
-                </div>
-            </div>
+            <h3>Travel &amp; Exploration</h3>
+            <p>Exploring new places across Sri Lanka, experiencing diverse cultures and perspectives that inspire creativity.</p>
+            <span class="activity-badge">Adventure</span>
         </div>
 
-        <!-- Card 6 -->
-        <div class="project-card" data-cat="uiux web">
-            <div class="card-img-wrapper">
-                <div class="placeholder-banner pb-6">
-                    <span class="banner-icon">🌐</span>
-                </div>
-                <span class="featured-badge">Featured</span>
+        <!-- Activity 6: Open Source -->
+        <div class="activity-card reveal">
+            <div class="activity-img-wrap">
+                <img
+                        src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=600&q=80"
+                        alt="Open Source"
+                        onerror="this.parentElement.style.background='linear-gradient(135deg,#ede9fe,#ddd6fe)'"
+                >
             </div>
-            <div class="card-body">
-                <div class="card-tags">
-                    <span class="tag tag-purple">HTML/CSS</span>
-                    <span class="tag tag-pink">JavaScript</span>
-                </div>
-                <h3 class="card-title">Personal Portfolio</h3>
-                <p class="card-desc">My portfolio website designed from scratch with dark theme, smooth animations and responsive layout.</p>
-                <div class="card-footer">
-                    <div class="card-links">
-                        <a href="#" class="link-btn link-live">Live</a>
-                        <a href="#" class="link-btn link-github">GitHub</a>
-                    </div>
-                    <span class="card-date">Dec 2024</span>
-                </div>
-            </div>
+            <h3>Open Source</h3>
+            <p>Contributing to and learning from open source projects on GitHub, building a portfolio of real-world collaborative code.</p>
+            <span class="activity-badge">Tech</span>
         </div>
 
     </div>
-
-    <div class="view-more-wrapper">
-        <button class="view-more-btn">View All Projects ↓</button>
-    </div>
-
 </section>
 
 
+<!-- ============================================================
+     GALLERY SECTION — Photo grid with expand-on-hover effect
+     Hovering over a photo expands its column width (CSS grid trick)
+     and all other photos dim/greyscale
+     ============================================================ -->
+<section class="gallery" id="gallery">
+    <div class="space">
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+    </div>
+    <div class="section-stars">
+        <div class="star-layer"></div><div class="star-layer"></div>
+        <div class="star-layer"></div><div class="star-layer"></div>
+        <div class="star-layer"></div>
+    </div>
 
-<!--Footer Section-->
+    <div class="section-header reveal">
+        <span class="section-tag">Memories</span>
+        <h2 class="section-title">My <span>Gallery</span></h2>
+        <div class="section-divider"></div>
+    </div>
+    <span class="gallery-subtitle">moments &amp; memories</span>
+
+    <!-- Gallery grid — images set as CSS background via --img variable,
+         data-text is the label shown on hover -->
+    <div class="gallery-grid">
+        <div class="box box-1"  style="--img:url(assets/Gallery/me.jpeg);"     data-text="Me"></div>
+        <div class="box box-2"  style="--img:url(assets/Gallery/Party.jpeg);"  data-text="Party"></div>
+        <div class="box box-3"  style="--img:url(assets/Gallery/Event.jpeg);"  data-text="Event"></div>
+        <div class="box box-4"  style="--img:url(assets/Gallery/IJSE.jpeg);"   data-text="IJSE Friends"></div>
+        <div class="box box-5"  style="--img:url(assets/Gallery/Trip.jpeg);"   data-text="Trip"></div>
+        <div class="box box-6"  style="--img:url(assets/Gallery/Me2.jpeg);"    data-text="Me"></div>
+        <div class="box box-7"  style="--img:url(assets/Gallery/Tec.jpeg);"    data-text="Tech Friends"></div>
+        <div class="box box-8"  style="--img:url(assets/Gallery/Flower.jpeg);" data-text="Flowers"></div>
+        <div class="box box-9"  style="--img:url(assets/Gallery/Friend.jpeg);" data-text="Childhood Friend"></div>
+        <div class="box box-10" style="--img:url(assets/Gallery/Me3.jpeg);"    data-text="Me"></div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACT SECTION — Contact form + sticker image
+     Form fields: Name, Email, Phone, Subject, Message
+     JS handles the submit animation (button flashes green then resets)
+     ============================================================ -->
+<section class="contact" id="contact">
+    <div class="space">
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+    </div>
+    <div class="section-stars">
+        <div class="star-layer"></div><div class="star-layer"></div>
+        <div class="star-layer"></div><div class="star-layer"></div>
+        <div class="star-layer"></div>
+    </div>
+
+    <div class="section-header reveal">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Contact <span>Me</span></h2>
+        <div class="section-divider"></div>
+        <p class="section-sub">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-wrapper">
+
+        <!-- Decorative sticker / illustration image on the left -->
+        <div class="contact-img reveal-left">
+            <img src="assets/contact/sticker.jpg" alt="Contact Sticker">
+        </div>
+
+        <!-- Contact form on the right -->
+        <form action="#" class="reveal-right">
+            <!-- Row 1: Full Name + Email -->
+            <div class="input-box">
+                <input type="text"  placeholder="Full Name"     required>
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            <!-- Row 2: Phone + Subject -->
+            <div class="input-box">
+                <input type="tel"  placeholder="Phone Number">
+                <input type="text" placeholder="Subject">
+            </div>
+            <!-- Message textarea -->
+            <textarea name="message" rows="7" placeholder="Your Message" required></textarea>
+            <!-- Submit button — JS changes it to "Sent ✓" briefly on submit -->
+            <input type="submit" value="Send Message">
+        </form>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER — Social links + copyright text
+     ============================================================ -->
 <footer class="footer">
     <div class="social">
-        <a href="#"><i class='bx bxl-linkedin'></i></a>
-        <a href=https://github.com/nipuninilsha/My-Portfolio target="_blank"><i class='bx bxl-github'></i></a>
-        <a href="https://www.facebook.com/people/Nipuni-Nilsha/61581707308728/" target="_blank"><i class='bx bxl-facebook'></i></a>
-        <a href=https://www.instagram.com/___nipuninilsha___/ ><i class='bx bxl-instagram'></i></a>
+        <a href="https://github.com/nipuninilsha"           target="_blank" title="GitHub">   <i class='bx bxl-github'></i></a>
+        <a href="https://www.linkedin.com/in/nipuni-nilsha" target="_blank" title="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+        <a href="https://www.facebook.com/people/Nipuni-Nilsha/61581707308728/" target="_blank" title="Facebook"><i class='bx bxl-facebook'></i></a>
+        <a href="https://www.instagram.com/___nipuninilsha___/" target="_blank" title="Instagram"><i class='bx bxl-instagram'></i></a>
     </div>
-    <p class="copyright">
-        &copy;Nipuni Nilsha - All Rights Reserved
-    </p>
+    <p class="copyright">&copy; 2026 Nipuni Nilsha — All Rights Reserved</p>
 </footer>
 
-<script src="https://www.hxstrive.com/cdn/libs/font-awesome/7.0.1/js/all.min.js"></script>
 
+<!-- Fixed "Back to Top" button — appears after scrolling 450px (controlled by JS) -->
+<button class="scroll-top" title="Back to top"><i class='bx bx-chevron-up'></i></button>
 
-
-
+<!-- Main JavaScript file — loaded at the end so all HTML is ready before JS runs -->
+<script src="JavaScript.js"></script>
 </body>
 </html>
