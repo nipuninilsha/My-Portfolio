@@ -1133,7 +1133,7 @@ section > *:not(.space) { position: relative; z-index: 1; }
 /* Activity card — flex column so the image sits at the very top,
    and inner text has its own padding */
 .activity-card {
-    display: ; flex-direction: column;
+    display: flex; flex-direction: column;
     align-items: center; text-align: center;
     padding: 0 0 3rem 0;  /* no top padding because image fills the top */
 }
