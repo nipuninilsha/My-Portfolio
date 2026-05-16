@@ -1215,7 +1215,7 @@ body { background: #ffffff; }
 
 /* Soft circular glow that follows the cursor (positioned by JS) */
 #cursor-glow {
-    position: fixed;
+    position: ;
     width: 380px; height: 380px;
     border-radius: 50%;
     pointer-events: none;
