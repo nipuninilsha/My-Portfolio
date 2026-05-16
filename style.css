@@ -1207,7 +1207,7 @@ body { background: #ffffff; }
 
 /* Fixed background layer — JS changes its "background" property */
 #page-bg {
-    position: fixed; inset: 0;
+    position: ; inset: 0;
     z-index: -1;
     transition: background 1.1s cubic-bezier(0.4, 0, 0.2, 1);  /* smooth 1.1s colour transition */
     pointer-events: none;
