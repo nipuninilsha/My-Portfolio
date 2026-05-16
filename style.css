@@ -1218,7 +1218,7 @@ body { background: #ffffff; }
     position: fixed;
     width: 380px; height: 380px;
     border-radius: 50%;
-    pointer-events: ;
+    pointer-events: none;
     z-index: -1;
     transform: translate(-50%, -50%);  /* centres it on the cursor position */
     transition: opacity 0.4s ease;
